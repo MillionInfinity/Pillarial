@@ -45,14 +45,7 @@ export class MapContainer extends Component {
         if (!this.props.google) {
             return <div>Loading...</div>
         }
-        // const style = {
-        //   width: '100%',
-        //   height: '100%',
-        // //   border:'2px solid green',
-        //   color:'black'
-        // }
-
-        return (
+              return (
             <div>
                 <Map style={{minWidth: "200px",minHeight: "200px"}} google={this.props.google} zoom={14} className={"map"} initialCenter={{lat: 36.149937, lng: -86.812866}} >
                  {

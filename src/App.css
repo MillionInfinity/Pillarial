@@ -90,7 +90,7 @@ p.dollar{
 
 img.align-items-end {
   position: absolute;
-  bottom:0px;
+  bottom:-100px;
   width: 100%;
 }
 
@@ -120,24 +120,12 @@ img.align-items-end {
   text-decoration: none;
 }
 
-#log-btn {
-  -webkit-border-radius: 10;
-  -moz-border-radius: 10;
-  border-radius: 5px;
-  font-family: 'Montserrat', sans-serif;
-  background-color: #c4114b;
-  color: white;
-  font-size: 15px;
-  padding: 5px 10px 5px 10px;
-  border: solid white 1px;
-  text-decoration: none;
+ .homee {
+margin-top:170px;
+margin-left: 0px;
+
 }
 
-#log-btn:hover {
-  background-color: #ffffff;
-  color: #c4114b;
-  text-decoration: none;
-}
 
 .btn-white {
   -webkit-border-radius: 10;
@@ -174,4 +162,7 @@ img.align-items-end {
   background: #222653;
   color: #ffffff;
   text-decoration: none;
+}
+.login-btn{
+  z-index: 150;
 }
