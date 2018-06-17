@@ -5,11 +5,11 @@ import {rebase, googleProvider} from './constants';
 import {saveUser} from './auth';
 import {loginWithGoogle, logout } from './config/auth';
 
-export function logout() {
+export function Signout() {
   return rebase.initializedApp.auth().signOut()
 }
 
-export function loginWithGoogle(update) {
+export function SigninWithGoogle(update) {
   return rebase.initializedApp.auth().signInWithPopup(googleProvider)
     .then((data) => {
       // console.log('user data', data);
@@ -19,7 +19,7 @@ export function loginWithGoogle(update) {
     });
 }
 
-export function checkUser() {
+export function CheckUser() {
   rebase.initializedApp.auth().onAuthStateChanged(function (user) {
     if (user) {
       this.setState({
@@ -29,7 +29,7 @@ export function checkUser() {
   })
 }
 
-export function saveUser(user) {
+export function SaveUser(user) {
   // console.log("save user", user);
   return rebase.initializedApp.database().ref().child(`users/${user.uid}`)
     .update({

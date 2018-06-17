@@ -5,6 +5,7 @@ import { googleProvider, rebase } from './UserIntr/constants';
 
 
 
+
 export function SaveObjToFB(endpoint, objToSave, ) {
 
     return rebase.push(endpoint, {
@@ -32,7 +33,7 @@ class TeachersProfile extends Component {
             phone: '',
             address1: '',
             zipCode: '',
-            file: '',
+           teacherid: '',
             imagePreviewUrl: '',
             state: '',
             SpecializedOn: '',
@@ -88,7 +89,8 @@ class TeachersProfile extends Component {
             "zipCode": this.state.zipCode,
             "specializedOn": this.state.specializedOn,
             "yourRate": this.state.yourRate,
-            "imagePreviewUrl": this.state.imagePreviewUrl
+            "imagePreviewUrl": this.state.imagePreviewUrl,
+            
         };
 
               //    this.sendtoFb(userProfileData);

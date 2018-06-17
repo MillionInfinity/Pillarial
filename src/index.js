@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import registerServiceWorker from './registerServiceWorker';
+// import registerServiceWorker from './registerServiceWorker';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {BrowserRouter as Router} from "react-router-dom";
 import 'semantic-ui-css/semantic.min.css';
@@ -12,4 +12,4 @@ ReactDOM.render(
 <App />
 </Router>,
  document.getElementById('root'));
-registerServiceWorker();
+// registerServiceWorker();
