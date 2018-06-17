@@ -166,3 +166,11 @@ margin-left: 0px;
 .login-btn{
   z-index: 150;
 }
+.input-file {
+  max-width: 100px !important;
+  border-radius: 50px;
+  -webkit-border-radius: 50px;
+  -moz-border-radius: 50px;
+  -ms-border-radius: 50px;
+  -o-border-radius: 50px;
+}
