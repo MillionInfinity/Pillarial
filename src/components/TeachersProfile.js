@@ -14,7 +14,7 @@ export function SaveObjToFB(endpoint, objToSave, ) {
             if (err) {
             <p>some thing wrong</p>
             } else if (!err) {
-            
+
             }
         }
     })
@@ -32,6 +32,7 @@ class TeachersProfile extends Component {
             lastName: '',
             phone: '',
             address1: '',
+            address:'',
             zipCode: '',
            teacherid: '',
             imagePreviewUrl: '',
@@ -47,7 +48,7 @@ class TeachersProfile extends Component {
 
     handleImageChange(e) {
         e.preventDefault();
-         
+
         let reader = new FileReader();
         let file = e.target.files[0];
 
@@ -69,7 +70,7 @@ class TeachersProfile extends Component {
         console.log("change", event.target.value);
 
     }
-   
+
 
     handleSubmit(event) {
         this.addUserProfile()
@@ -85,12 +86,12 @@ class TeachersProfile extends Component {
             "lastName": this.state.lastName,
             "phone": this.state.phone,
             "address1": this.state.address1,
-            "address2": this.state.address2,
+            "address": this.state.address,
             "zipCode": this.state.zipCode,
             "specializedOn": this.state.specializedOn,
             "yourRate": this.state.yourRate,
             "imagePreviewUrl": this.state.imagePreviewUrl,
-            
+
         };
 
               //    this.sendtoFb(userProfileData);
@@ -99,9 +100,9 @@ class TeachersProfile extends Component {
         let { imagePreviewUrl } = this.state;
         let $imagePreview = null;
         if (imagePreviewUrl) {
-            $imagePreview = (<img src={imagePreviewUrl} />);
+            $imagePreview = (<img src={imagePreviewUrl} style={{width:'100px'}} />);
         }
-        
+
             return (
                 <div>
                     <div className="Profile">
@@ -111,8 +112,8 @@ class TeachersProfile extends Component {
                                     <div className="text-center">
 
                                         {$imagePreview}
-                                        <div className="form-group">
-                                            <input id="Upload-photo" name="Upload photo" className="input-file" type="file" onChange={this.handleImageChange} />
+                                        <div className="form-group text-center">
+                                            <input id="Upload-photo" name="Upload photo" className="input-file mt-4" type="file" onChange={this.handleImageChange} />
                                             <label className="col-md-8 control-label" htmlFor="Upload photo" accept=".jpg, .jpeg ,.png"></label>
                                         </div>
                                     </div>
@@ -128,13 +129,14 @@ class TeachersProfile extends Component {
                                             <p><label></label><input className="form-control" name="firstName" placeholder="First Name" value={this.state.value} onChange={this.handleChange} /></p>
                                             <p><label></label><input className="form-control" name="lastName" placeholder="Last Name" value={this.state.value} onChange={this.handleChange} /></p>
                                             <p><label></label><input className="form-control" name="phone" placeholder="Phone Number" value={this.state.value} onChange={this.handleChange} /></p>
-                                            <p><label></label><input className="form-control" name="address1" placeholder="Permanent Address" value={this.state.value} onChange={this.handleChange} /></p>
+                                            <p><label></label><input className="form-control" name="address" placeholder="Permanent Address" value={this.state.value} onChange={this.handleChange} /></p>
+                                              <p><label></label><input className="form-control" name="address1" placeholder="Permanent Address" value={this.state.value} onChange={this.handleChange} /></p>
                                             <p><label></label><input className="form-control" name="specializedOn" placeholder="Specialized On" value={this.state.value} onChange={this.handleChange} /></p>
                                             <p><label></label><input className="form-control" name="yourRate" placeholder="Your rate per hour" value={this.state.value} onChange={this.handleChange} /></p>
 
                                             <div className="row">
                                                 <div className="col-6">
-                                                    <p><label></label><input className="form-control" name="zip-code" id="zipCode" placeholder="Zip-code" required value={this.state.value} onChange={this.handleChange} /></p>
+                                                    <p><label></label><input className="form-control" name="zipCode" id="zipCode" placeholder="Zip Code" required value={this.state.value} onChange={this.handleChange} /></p>
                                                 </div>
                                                 <div className="col-6">
                                                     <p><label htmlFor="state"></label>
@@ -152,7 +154,7 @@ class TeachersProfile extends Component {
                             </div>
                         </div>
                     </div>
-                    
+
                 </div>
             )
 
