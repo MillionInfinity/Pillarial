@@ -1,72 +1,65 @@
-import React from 'react';
-import {paymentRequest} from 'react-payment-request-api';
-import PropTypes from 'prop-types'
-// const Button = ({ show, isSupported, style }) => isSupported
-//     ? <button onClick={show} style={style}>Pay now!</button>
-//     : <span>Payment request not supported</span>;
+// import React from 'react';
+// import {paymentRequest} from 'react-payment-request-api';
+// import PropTypes from 'prop-types'
 
-// export default paymentRequest()(Button);
+// const createPaymentRequest = ({ methodData, details, options }) =>
+//     new window.PaymentRequest(methodData, details, options)
 
+// const addEventListener = (request, event, callback) => {
+//     request.addEventListener(event, e => {
+//         const promise = new Promise((resolve, reject) => callback(request, resolve, reject))
+//         e.updateWith(promise)
+//     })
+// }
 
+// class ReactPaymentRequest extends React.Component {
 
-const createPaymentRequest = ({ methodData, details, options }) =>
-    new window.PaymentRequest(methodData, details, options)
+//     constructor(props) {
+//         super(props)
 
-const addEventListener = (request, event, callback) => {
-    request.addEventListener(event, e => {
-        const promise = new Promise((resolve, reject) => callback(request, resolve, reject))
-        e.updateWith(promise)
-    })
-}
+//         this.handleClick = this.handleClick.bind(this)
+//     }
 
-class ReactPaymentRequest extends React.Component {
+//     componentWillUnmount() {
+//         if (this.request) {
+//             this.request.abort()
+//         }
+//     }
 
-    constructor(props) {
-        super(props)
+//     handleClick() {
+//         this.request = createPaymentRequest(this.props)
 
-        this.handleClick = this.handleClick.bind(this)
-    }
+//         addEventListener(this.request, 'shippingaddresschange', this.props.onShippingAddressChange)
+//         addEventListener(this.request, 'shippingoptionchange', this.props.onShippingOptionChange)
 
-    componentWillUnmount() {
-        if (this.request) {
-            this.request.abort()
-        }
-    }
+//         return this.request.show()
+//             .then(paymentResponse => this.props.onSuccess(paymentResponse))
+//             .catch(err => this.props.onError(err))
+//     }
 
-    handleClick() {
-        this.request = createPaymentRequest(this.props)
+//     render() {
+//         if (!window.PaymentRequest) {
+//             return null
+//         }
 
-        addEventListener(this.request, 'shippingaddresschange', this.props.onShippingAddressChange)
-        addEventListener(this.request, 'shippingoptionchange', this.props.onShippingOptionChange)
+//         return (
+//             <div onClick={this.handleClick}>
+//                 {this.props.children}
+//             </div>
+//         )
+//     }
 
-        return this.request.show()
-            .then(paymentResponse => this.props.onSuccess(paymentResponse))
-            .catch(err => this.props.onError(err))
-    }
+// }
 
-    render() {
-        if (!window.PaymentRequest) {
-            return null
-        }
+// ReactPaymentRequest.propTypes = {
+//     children: PropTypes.any,
+//     details: PropTypes.object,
+//     methodData: PropTypes.array,
+//     onError: PropTypes.func,
+//     onShippingAddressChange: PropTypes.func,
+//     onShippingOptionChange: PropTypes.func,
+//     onSuccess: PropTypes.func,
+//     options: PropTypes.object,
+// }
 
-        return (
-            <div onClick={this.handleClick}>
-                {this.props.children}
-            </div>
-        )
-    }
-
-}
-
-ReactPaymentRequest.propTypes = {
-    children: PropTypes.any,
-    details: PropTypes.object,
-    methodData: PropTypes.array,
-    onError: PropTypes.func,
-    onShippingAddressChange: PropTypes.func,
-    onShippingOptionChange: PropTypes.func,
-    onSuccess: PropTypes.func,
-    options: PropTypes.object,
-}
-
-module.exports = ReactPaymentRequest
+// module.exports = ReactPaymentRequest
