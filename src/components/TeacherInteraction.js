@@ -10,7 +10,7 @@ class TeacherInteraction extends Component {
         super(props);
         this.state = {
             teaFb: [],
-           
+            // mapview: true
         }
       
     }
@@ -26,7 +26,12 @@ class TeacherInteraction extends Component {
         });
 
     }
-    
+    // viewMap = () => {
+    //     this.setState({
+    //         mapview: true
+    //     });
+    // }
+
 
 
     render() {
@@ -43,10 +48,7 @@ class TeacherInteraction extends Component {
 
         return (
             <div className="App">
-                <div className="filter">
-                    {/* <Filter submit={this.getFormData} submit2={this.submit} value={this.locationValue} handleChange={this.handleChange} /> */}
-                </div>
-                <div mapview={mapview}>{view}</div>
+               <div mapview={mapview}>{view}</div>
                 <div className="footerNav row">
                     {/* <div className="col-auto mx-auto borderRule" onClick={this.viewMap}><img src={MapIcon} className="footer-icon" alt="Map Icon"></img><br />Map</div><div className="col-auto mr-auto" onClick={this.viewList}><img src={ListIcon} className="footer-icon" alt="List Icon"></img><br />List</div> */}
                 </div>

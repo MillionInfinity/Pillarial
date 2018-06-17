@@ -9,6 +9,7 @@ import TeachersProfile from './components/TeachersProfile';
 import AddStudent from './components/AddStudent';
 import TeacherList from './components/TeacherList';
 import Nav from './components/Nav';
+import ContactModal from './components/ContactModal';
 class App extends Component {
       render() {
 
@@ -21,8 +22,9 @@ class App extends Component {
                <Route exact path='/TeachersProfile' component={TeachersProfile} />
                <Route exact path='/AddStudent' component={AddStudent} />
                <Route exact path='/MapContainer' component={MapContainer} />
-                <Route exact path='/TeacherList' component={TeacherList}/>
-               <Route exact path='/Nav' component={Nav} />
+               <Route exact path='/TeacherList' component={TeacherList}/>
+               <Route exact path='/Nav' component={Nav}/>
+               <Route exact path='/ContactModal' component={ContactModal} />
              </div>
            );
          }

@@ -4,7 +4,7 @@ import profileImg from '../img/icons/man.png';
 import MapContainer from '../components/MapContainer';
 import Login from '../components/UserIntr/Login';
 import Home from '../pages/Home';
-import Checkbox from './CheckBox';
+
 import AddStudents from '../components/AddStudent';
 import Profiles from '../pages/Profiles';
 import TeachersProfile from '../components/TeachersProfile';

@@ -2,8 +2,28 @@ import React, { Component } from 'react';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import man from '../img/icons/man.png';
 import ReactStars from '../components/Reactstars';
+import {googleProvider, rebase} from './UserIntr/constants';
 // import Calculate from '../components/Calculate';
 let ButtonToolbar = '';
+
+export function SaveObjToFB(endpoint, objToSave, ) {
+
+    return rebase.push(endpoint, {
+        data: objToSave,
+        then(err) {
+            if (err) {
+                <p>some thing wrong</p>
+            } else if (!err) {
+
+            }
+        }
+    })
+        .then((result) => {
+            // console.log("saved something to firebase and this was the result:", result);
+            return result;
+        })
+}
+
 
 class ContactModal extends Component {
     constructor(props) {
@@ -58,20 +78,22 @@ class ContactModal extends Component {
     }
     handleSubmit(e){
        console.log("Submit button clicked", this.state);
-      this.state,
-        this.contactTeacher()
-
+       this.contactTeacher()
+        let contactObj = this.state;
+        SaveObjToFB(`ContactTeacher/`,contactObj);
     }
-    contactTeacher(name){
+    contactTeacher=()=>{
       let teacherContactData={
         "subject":this.state.subject,
         "topic":this.state.topic,
         "SubTopic":this.state.subTopic,
         "meetAt":this.state.meetAt,
-        "time":this.state.time,
+        "hours":this.state.hours,
         "date":this.state.date,
-        "due":this.state.due
-      }
+        "due":this.state.due,
+        "time":this.state.time,
+        "totalPaid":this.state.totalPaid
+      };
     }
     render() {
         return (
