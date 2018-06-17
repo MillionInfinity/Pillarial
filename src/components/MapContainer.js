@@ -3,18 +3,18 @@ import { Map, InfoWindow, Marker, GoogleApiWrapper } from "google-maps-react";
 import addUser1 from '../img/icons/man.png';
 import ReactStars from '../components/Reactstars';
 import '../App.css';
-
-
+import {GetFromFB} from './UserIntr/auth';
+import {rebase } from './UserIntr/constants';
 
 export class MapContainer extends Component {
     constructor(props) {
         super(props);
-
+       
         this.state = {
             showingInfoWindow: false,
             activeMarker: {},
             selectedPlace: {},
-
+             matches:[],
             call:null,
             // lat:null,
             // lng:null,
@@ -27,7 +27,17 @@ export class MapContainer extends Component {
     }
 
     componentWillUpdate(){
-        console.log("Rendered", this.props.data);
+        GetFromFB('teacher').then(res => {
+            const i='';
+            console.log("teacher from firebase",res);
+            const data = res.filter(i => i.teacher=== this.props.teacher);
+            return data
+           console.log("techerdata", data)
+        //    this.setState({
+        //     matches: data
+        // })
+        })
+       
     }
 
     /* marker event handler */
@@ -42,6 +52,8 @@ export class MapContainer extends Component {
 
 
     render() {
+     
+
         if (!this.props.google) {
             return <div>Loading...</div>
         }
@@ -99,6 +111,7 @@ export class MapContainer extends Component {
                     </div>
                </InfoWindow>
                 </Map>
+                     
             </div>
         );
     }

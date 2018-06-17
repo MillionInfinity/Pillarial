@@ -1,6 +1,6 @@
-import {rebase}  from './constants';
+import { rebase} from './constants';
 
-export function logout () {
+export function logout(){
   return rebase.initializedApp.auth().signOut()
 }
 

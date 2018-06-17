@@ -24,7 +24,7 @@ class Profile extends Component {
         this.handleImageChange = this.handleImageChange.bind(this);
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
-        this.getprofile = this.getprofile.bind(this);
+        // this.getprofile = this.getprofile.bind(this);
         this.addUserProfile = this.addUserProfile.bind(this)
     }
     handleImageChange(e) {
@@ -58,16 +58,8 @@ class Profile extends Component {
         this.state,
             this.addUserProfile()
     }
-    getprofile() {
-        fetch('http://localhost:3000/profile')
-            .then((response) => response.json())
-            .then((responseJson) => {
-                console.log("i got you server", responseJson);
-            })
-            .catch((error) => {
-                console.error(error);
-            });
-    }
+  
+    
 
 
     addUserProfile(name) {
