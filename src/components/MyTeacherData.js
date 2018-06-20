@@ -1,15 +1,15 @@
 import React from 'react';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
-import ContactModal from './ContactModal';
+import MyTeacherProfile from './MyTeacherProfile';
 import './ListItem.css';
 
-let ContactData = (props) => {
+let MyTeacherData = (props) => {
 
     console.log("from TeacherData file line 8", props.data);
 
     const allTeachers = props.data.map((item, index) =>
-        <div key={item.key} className="ListDiv">
-            <ContactModal
+        <div key={item.key} className="Lis">
+            <MyTeacherProfile
                 firstName={item.firstName}
                 lastName={item.lastName}
                 address={item.address}
@@ -19,16 +19,16 @@ let ContactData = (props) => {
                 zipCode={item.zipCode}
                 specializedOn={item.specializedOn}
                 imagePreviewUrl={item.imagePreviewUrl}
-
+                yourRate={item.yourRate}
             />
         </div>)
     return (
         <div className="container-fluid">
-            <p className="h_text-center">Teacher Around Me</p>
-            <div className="ListDiv">{allTeachers}</div>
+            <p className="h_text-center"> MyTeacherData 27</p>
+            <div className="Lis">{allTeachers}</div>
 
         </div>
     );
 }
 
-export default ContactData;
+export default MyTeacherData;

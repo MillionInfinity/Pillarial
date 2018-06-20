@@ -3,7 +3,9 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat');
 
 /* Main */
-
+body{
+ font-family: 'Montserrat', sans-serif;
+}
 h1.pillar {
   font-family: 'Montserrat', sans-serif;
   font-weight: bold;
@@ -34,7 +36,7 @@ h3 {
   border: solid white 1px;
   border-radius: 5px;
   color: white;
-  /* height: 2.1em; */
+  /* height: 2.1em;  b0d345*/  
 }
 #signup{
     background-color: #b0d345;
@@ -119,7 +121,24 @@ img.align-items-end {
   color: #ffffff;
   text-decoration: none;
 }
+.btn-green {
+  -webkit-border-radius: 10;
+  -moz-border-radius: 10;
+  border-radius: 5px;
+  font-family: 'Montserrat', sans-serif;
+  background-color: white;
+  color : #b0d345;
+  font-size: 15px;
+  padding: 5px 10px 5px 10px;
+  border: solid #b0d345 1px;
+  text-decoration: none;
+}
 
+.btn-green:hover {
+  background-color : #b0d345;
+  color: #ffffff;
+  text-decoration: none;
+}
  .homee {
 margin-top:170px;
 margin-left: 0px;

@@ -1,13 +1,13 @@
 import React, { Component } from "react";
 import { Map, InfoWindow, Marker, GoogleApiWrapper } from "google-maps-react";
-
+// import { BrowserRouter as Router, Route, Link, Switch, Redirect } from "react-router-dom";
 
 import addUser1 from '../img/icons/man.png';
 import ReactStars from '../components/Reactstars';
 import '../App.css';
 import {GetFromFB} from './UserIntr/auth';
 import {rebase } from './UserIntr/constants';
-
+import Nav from './Nav';
 
 
 export class MapContainer extends Component {
@@ -45,15 +45,16 @@ export class MapContainer extends Component {
         }
        return (
             <div>
+                <Nav/>
                 <Map style={{minWidth: "200px",minHeight: "200px"}}
                 google={this.props.google} zoom={14}
                 className={"map"} initialCenter={{lat: 36.149937, lng: -86.812866}}>
-                          
-                           
+
+
                 <Marker title={'This is a point'} onClick={this.onMarkerClick}  position={{ lat:36.149937, lng:-86.812866}}
                        name={'this.props.data'}/>
                      <InfoWindow marker={this.state.activeMarker} visible={this.state.showingInfoWindow}>
-                    <div className="MapMarkerInfo"> 
+                    <div className="MapMarkerInfo">
                   <div className="container-fluid">
                   <div className="row">
                   <div className="col-4">
@@ -79,7 +80,9 @@ export class MapContainer extends Component {
                      </div>
                      <div className="row review">
                          <div className="col-4">
-                                          <p className="text-right">Schedule</p>
+
+                            <p className="text-right">Schedule</p>
+
                         </div>
                          <div className="col-4">
                                           <p className="text-right message">Message</p>
@@ -90,7 +93,7 @@ export class MapContainer extends Component {
                    </div>
                         <ReactStars/>
                      </div>
-                    </div> 
+                    </div>
                </InfoWindow>
                 </Map>
 

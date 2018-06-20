@@ -1,12 +1,11 @@
 import React, {Component} from 'react';
-
-class DeclineBtn extends Component{
+class MyTeacherProfile extends Component{
     render(){
         return(
             <div>
-                THis is Decline button
+             <p> {this.props.firstName} </p>
             </div>
         );
     }
 }
-export default DeclineBtn;
+export default MyTeacherProfile;

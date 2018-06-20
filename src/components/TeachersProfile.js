@@ -4,7 +4,7 @@ import { googleProvider, rebase } from './UserIntr/constants';
 
 
 
-
+var user ;
 
 export function SaveObjToFB(endpoint, objToSave, ) {
 
@@ -23,6 +23,7 @@ export function SaveObjToFB(endpoint, objToSave, ) {
             return result;
         })
 }
+
 class TeachersProfile extends Component {
     constructor(props) {
         super(props);
@@ -38,8 +39,9 @@ class TeachersProfile extends Component {
             imagePreviewUrl: '',
             state: '',
             SpecializedOn: '',
-            yourRate: ''
-            };
+            yourRate: '',
+          
+                   };
         this.handleImageChange = this.handleImageChange.bind(this);
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -50,7 +52,7 @@ class TeachersProfile extends Component {
         e.preventDefault();
 
         let reader = new FileReader();
-        let file = e.target.files[0];
+        let file = e.target.files[0]
 
         reader.onloadend = () => {
             this.setState({
@@ -70,13 +72,20 @@ class TeachersProfile extends Component {
         console.log("change", event.target.value);
 
     }
+componentDidMount(){
+    this.props.uid;
+    console.log("thisprops teacher profile", this.props.user);
 
+}
 
     handleSubmit(event) {
-        this.addUserProfile()
+        event.preventDefault();
+        this.addUserProfile(this.props.uid)
+        let userId=this.props.uid;
+        console.log("this.teacherprofile user",this.props.uid);
         let stateObject=this.state;
-        console.log("some thing", this.state);
-       SaveObjToFB(`teacher/`,stateObject);
+        // console.log("some thing", this.state);
+       SaveObjToFB(`teacher/`,stateObject, userId);
     }
 
 
@@ -91,7 +100,8 @@ class TeachersProfile extends Component {
             "specializedOn": this.state.specializedOn,
             "yourRate": this.state.yourRate,
             "imagePreviewUrl": this.state.imagePreviewUrl,
-
+            
+           
         };
 
               //    this.sendtoFb(userProfileData);
@@ -110,7 +120,6 @@ class TeachersProfile extends Component {
                             <div className="row">
                                 <div className="col m-3">
                                     <div className="text-center">
-
                                         {$imagePreview}
                                         <div className="form-group text-center">
                                             <input id="Upload-photo" name="Upload photo" className="input-file mt-4" type="file" onChange={this.handleImageChange} />

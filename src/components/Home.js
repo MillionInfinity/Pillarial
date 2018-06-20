@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Login from '../components/UserIntr/Login';
 import Payments from '../components/Payments';
+import MapContainer from '../components/MapContainer';
 import main from '../img/icons/home.png';
 import H1 from '../components/H1';
 import Welcome from '../components/Welcome';
@@ -53,15 +54,15 @@ class Home extends Component {
          else if(this.state.authed && this.state.openData){
            return(
              <div>
-               {/* <MapContaine/> user={this.state.user} logoutApp={this.logoutApp} */}
                <Welcome/> user={this.state.user} logoutApp={this.logoutApp}
+            
              </div>
            )
          }else {
            return(
              <div>
-              {/* <Nav/>
-               {/* <MapContainer /> */}
+              
+               <Welcome />
             
               
              </div>

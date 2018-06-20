@@ -1,5 +1,5 @@
 import React from 'react';
-import {Button, Modal, ModalHeader, ModalBody, ModalFooter} from 'reactstrap';
+
 import TeacherList from './TeacherList';
 import './ListItem.css';
 
@@ -19,16 +19,17 @@ let TeacherData = (props) => {
                 zipCode={item.zipCode}
                 specializedOn={item.specializedOn}
                 imagePreviewUrl={item.imagePreviewUrl}
-
+                yourRate={item.yourRate}
                />
         </div>)
     return (
         <div className="container-fluid">
-            <p className="h_text-center">Teacher Around Me</p>
+            <p className="h_text-center"> TeacherData 27</p>
             <div className="ListDiv">{allTeachers}</div>
+          
 
         </div>
     );
+    
 }
-
 export default TeacherData;

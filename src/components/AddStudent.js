@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import '../App.css';
 import main1 from '../img/icons/add-user.png';
 import Button from '../components/Button.js';
+import { Link} from "react-router-dom";
 
 
 class AddStudent extends Component {
@@ -22,7 +23,7 @@ class AddStudent extends Component {
         this.handleImageChange = this.handleImageChange.bind(this);
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
-        this.getprofile = this.getprofile.bind(this);
+        // this.getprofile = this.getprofile.bind(this);
         this.addUserProfile = this.addUserProfile.bind(this)
     }
     handleImageChange(e) {
@@ -56,16 +57,7 @@ class AddStudent extends Component {
         this.state,
             this.addUserProfile()
     }
-    getprofile() {
-        fetch('http://localhost:3000/profile')
-            .then((response) => response.json())
-            .then((responseJson) => {
-                console.log("i got you server", responseJson);
-            })
-            .catch((error) => {
-                console.error(error);
-            });
-    }
+   
 
 
     addUserProfile(name) {
@@ -129,7 +121,9 @@ class AddStudent extends Component {
                                     <p><label></label><input className="form-control" name="meet" placeholder="Where Do want to Meet" value={this.state.value} onChange={this.handleChange} /></p>
 
                                     <div className="text-center m-4">
+                                        <Link to={'/MapContainer'}>
                                    <button className={"btn-red mr-4 "} link="" name="Submit" type="button" onClick={this.handleSubmit}>Add</button>
+                                 </Link>
                                    </div>
                                 </form>
                             </div>
