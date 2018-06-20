@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import TeachersProfile from '../components/TeachersProfile';
-import Nav from '../components/Nav';
+
 import man from '../img/icons/man.png';
 import ReactStars from '../components/Reactstars';
 import { googleProvider, rebase } from './UserIntr/constants';
@@ -79,7 +79,7 @@ class TeacherList extends React.Component {
     console.log("Submit button clicked", this.state);
     this.contactTeacher()
     let contactObj = this.state;
-    SaveObjToFB(`ContactTeacher/`, contactObj);
+    SaveObjToFB(`contactTeacher/`, contactObj);
   }
   contactTeacher = () => {
     let teacherContactData = {
@@ -96,6 +96,8 @@ class TeacherList extends React.Component {
   }
   render() {
     return (
+      <div className="container-fluid">
+
       <div className="container">
         <div id="rowli" className="row">
           <div className="col-md-2"></div>
@@ -107,29 +109,35 @@ class TeacherList extends React.Component {
               <p><strong>Last Name:</strong> {this.props.lastName}</p>
               <p><strong>Subjects:</strong> {this.props.specializedOn}</p>
               <br />
-              <a href="#" className="more" onClick={this.toggle}>Contact form...</a>
+              <a href="#" className="more" onClick={this.toggle}>Teaachers List line 113</a>
             </ul>
           </div>
           <div className="col-md-2"></div>
         </div>
-         <Button color="danger" onClick={this.toggle}>{this.props.buttonLabel}</Button> 
+         {/* <Button color="danger" onClick={this.toggle}>{this.props.buttonLabel}</Button>  */}
             <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
                     <ModalHeader toggle={this.toggle}>
                         <div className="row">
                             <div className="col-2">
-                                <img src={man} alt="" style={{ width: '50px' }} />
+                  <img src={man} alt='' className="img-circle" src={this.props.imagePreviewUrl}/>
                             </div>
                             <div className="col-1"></div>
                             <div className="col-8">
-                                <h5>Contact(some props)</h5>
-                                <ReactStars /><span>rate props</span>
-                                <h6>JavaScript, ReactJs, AngularJs</h6>
+                <h5>Contact {this.props.firstName}</h5>
+                             <div className="row">
+                             <div className="col-8">
+                                <ReactStars/>
+                                </div>
+                                <div className="col-4">
+                                <p className="text-right yourRate">$ {this.props.yourRate}</p>
+                                </div>
+                                </div>
+                                <h6>{this.props.specializedOn}</h6>
                             </div>
                         </div>
                     </ModalHeader>
                     <ModalBody>
-
-                        <div className="mt-4" style={{ margin: '15px' }}>
+                     <div className="mt-4" style={{ margin: '15px' }}>
                         <form className="form-horizontal">
                                   <p><label></label><input className="form-control" name="subject" placeholder="Subjects you need support" value={this.state.value} onChange={this.handleChange}/></p>
                                   <p><label></label><input className="form-control" name="topic" placeholder="Title of your topic" value={this.state.value} onChange={this.handleChange}/></p>
@@ -146,11 +154,9 @@ class TeacherList extends React.Component {
                         </div>
                     </ModalBody>
                     <ModalFooter>
-
-
-                    </ModalFooter>
+                  </ModalFooter>
                 </Modal>
-
+          </div>
       </div>
     );
   }

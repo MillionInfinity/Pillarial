@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
 import '../App.css';
-import main1 from '../img/icons/add-user.png';
+import Nav from './Nav';
 import Button from '../components/Button.js';
-import RequestModal from './RequestModal';
-import ContactModal from './ContactModal';
+import AddStudent from './AddStudent';
+import { BrowserRouter as Router, Route, Link, Switch, Redirect } from "react-router-dom";
 
 
 class Profile extends Component {
@@ -75,15 +75,6 @@ class Profile extends Component {
 
         console.log("profile to database");
 
-        fetch('http://localhost:3000/Profile', {
-            method: 'POST', // or 'PUT'
-            body: JSON.stringify(userProfileData), // data can be `string` or {object}!
-            headers: new Headers({
-                'Content-Type': 'application/json'
-            })
-        }).then(res => res.json())
-            .catch(error => console.error('sorry Error try to send it again', error))
-            .then(response => console.log('Successfully posted to data base', response));
     }
 
     render() {
@@ -94,6 +85,8 @@ class Profile extends Component {
         }
 
         return (
+            <div>
+                           <Nav/>
             <div className="Profile">
                 <div className="container-fluid" >
                     <div className="row">
@@ -130,18 +123,19 @@ class Profile extends Component {
                                         </div>
                                     </div>
                                     <div className="text-center m-4">
-                                   <button className={"btn-red mr-4 "} link="" name="Submit" type="button" onClick={this.handleSubmit}>Save and Next</button>
+                                    <Link to={'/AddStudent'}>
+                                   <button className={"btn-green mr-4 "} link="" name="Submit" type="button" onClick={this.handleSubmit}>Save and Next</button>
+                                    </Link>
                                    </div>
                                 </form>
                             </div>
                             <div className="col-1"></div>
                         </div>
-                        <RequestModal/>
-                        <ContactModal/>
-                    </div>
+                                    </div>
 
 
                 </div>
+            </div>
             </div>
 
         );

@@ -1,24 +1,86 @@
 import React, {Component} from 'react';
-import userCircle from '../img/icons/man.png';
-import TeacherData from './TeacherData';
-import TeacherInteraction from './TeacherInteraction';
+import {BrowserRouter as Router, Route, Link, Switch, Redirect} from "react-router-dom";
+import {Collapse, Button, CardBody, Card} from 'reactstrap';
+import CollapseExample from './CollapseExample';
+import Modal from 'react-modal';
+import SlidingPane from 'react-sliding-pane';
+import 'react-sliding-pane/dist/react-sliding-pane.css';
+import ribbonmark from '../img/icons/ribbon-mark.png';
+import './ListItem.css';
+import TeacherList from './TeacherList';
+import  MapContainer  from './MapContainer';
+import  Profile from './Profile';
+import RequestModal from './RequestModal';
 class Nav extends Component{
-    render(){
-        // const user = this.props.user.providerData[0];
-        // const name = this.props.user.displayName;
-        // const profileImg = user.photoURL ? user.photoURL : userCircle;
-        return(
-           
-                <div className="d-flex justify-content-between ml-4">
-                     {/* <TeacherData/> */}
-                     <TeacherInteraction/>
-                     {/* <p>i See nothing</p> */}
-                    <div className="top-nav-user-img mr-4">
-                        {/* <img className="img-thumbnail" src={profileImg} alt="user" onClick={this.props.viewProfile} /> */}
-                    </div>
+
+        constructor(props) {
+            super(props);
+            this.state = {
+                isPaneOpenLeft: false,
+                locationValue: ''
+            };
+
+            this.submit = this.submit.bind(this);
+        }
+
+
+        componentDidMount() {
+            Modal.setAppElement(this.el);
+        }
+
+
+        handleSubmit = () => {
+            alert('A location was submitted: ' + this.state);
+        }
+
+
+        submit(event){
+            this.props.submit(this.state);
+            event.preventDefault();
+        }
+
+        render() {
+            return (
+                <div>
+                <nav class="navbar ">
+                        <a class="navbar-brand" ></a>
+                <div ref={ref => this.el = ref}>
+                    <div className='text-left sidemark'>
+                    <img src={ribbonmark} alt="sidemark" onClick={() => this.setState({isPaneOpenLeft: true})} style={{width:'35px'}}/>
+                     </div>
+                    <SlidingPane
+
+                        isOpen={this.state.isPaneOpenLeft}
+
+                        title='WELCOME'
+                        from='left'
+                        width='80%'
+
+                        onRequestClose={() => this.setState({ isPaneOpenLeft: false })}>
+                           <Link to={'/Profile'}>
+                            <p>My Profile</p>
+                            </Link>
+                            <hr></hr>
+                            <p>My Messages</p>
+                            <hr></hr>
+                            <p>My History</p>
+                            {/* <CollapseExample title="Date of Crime" form={<DateInput handleChange={this.props.handleChange} />} /> */}
+                            <hr></hr>
+
+                            <p>My Request</p>
+
+                            {/* <CollapseExample value={this.props.value} title="Location" form={<LocationInput handleChange={this.props.handleChange} />} /> */}
+                            <hr></hr>
+                            {/* <input className="submit" type="submit" value="Submit" onClick={(event) => { console.log("Submit pressed."), this.props.submit2(event), event.preventDefault() }} /> */}
+
+                    </SlidingPane>
                 </div>
-           
-        );
+                </nav>
+                 {/* <MapContainer/> */}
+                {/* <RequestModal/> */}
+                </div>
+            );
+        }
     }
-}
+
 export default Nav;

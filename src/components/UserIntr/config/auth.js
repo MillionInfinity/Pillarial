@@ -38,6 +38,7 @@ export function saveUser (user) {
   return rebase.initializedApp.database().ref().child(`users/${user.uid}`)
     .set({
       email: user.email,
+      user:user.displayName,
       uid: user.uid,
       portrait: user.photoURL,
       zip: ''

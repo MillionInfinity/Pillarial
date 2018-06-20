@@ -1,30 +1,17 @@
 import React, { Component } from 'react';
-import MapContainer from '../src/components/MapContainer';
+import Main from './components/Main';
 import './App.css';
-import { BrowserRouter as Router, Route, Link, Switch, Redirect } from "react-router-dom";
-import Home from './pages/Home';
-import Profiles from './pages/Profiles';
-import Payments from './components/Payments';
-import TeachersProfile from './components/TeachersProfile';
-import AddStudent from './components/AddStudent';
-import TeacherList from './components/TeacherList';
 import Nav from './components/Nav';
-import ContactModal from './components/ContactModal';
+
+
 class App extends Component {
       render() {
 
            return(
              <div>
-                 
-               <Route exact path={'/'} component={Home} />
-               <Route exact path='/Profiles' component={Profiles} />
-               <Route exact path='/Payments' component={Payments} />
-               <Route exact path='/TeachersProfile' component={TeachersProfile} />
-               <Route exact path='/AddStudent' component={AddStudent} />
-               <Route exact path='/MapContainer' component={MapContainer} />
-               <Route exact path='/TeacherList' component={TeacherList}/>
-               <Route exact path='/Nav' component={Nav}/>
-               <Route exact path='/ContactModal' component={ContactModal} />
+               {/* <Nav/> */}
+                <Main/> 
+          
              </div>
            );
          }

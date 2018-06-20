@@ -11,7 +11,7 @@ export function saveUser(user) {
       uid: user.uid,
       photo: user.photoURL,
       name: user.displayName,
-      zip: null
+   
     })
     .then(() => {
       return user;

@@ -1,7 +1,9 @@
 import React, {Component} from 'react';
-import MapContainer from './MapContainer';
+
 import TeacherData from './TeacherData';
 import { GetFromFB } from './UserIntr/auth';
+import RequestModal from './RequestModal';
+
 
 
 
@@ -10,15 +12,13 @@ class TeacherInteraction extends Component {
         super(props);
         this.state = {
             teaFb: [],
-            // mapview: true
-        }
-      
+            }
+
     }
     componentDidMount = () => {
         GetFromFB('teacher').then(data => {
-            //   console.log("teacher from firebase",data);
-            let teacherstuff = Object.values(data);
-            console.log("teacher ready to printing", teacherstuff);
+         let teacherstuff = Object.values(data);
+            // console.log("TeacherInteraction line 21", teacherstuff);
             this.setState({
                 teaFb: teacherstuff
             })
@@ -26,32 +26,12 @@ class TeacherInteraction extends Component {
         });
 
     }
-    // viewMap = () => {
-    //     this.setState({
-    //         mapview: true
-    //     });
-    // }
-
-
-
-    render() {
-        const mapview = this.state.mapview;
-
-        let view = mapview ?
-            (<div className="map">
-                <MapContainer data={this.state.teaFb} />
-            </div>)
-            :
-            (<div className="listDiv">
-                <TeacherData data={this.state.teaFb} />
-            </div>);
-
+      render() {
+          let view = <TeacherData data={this.state.teaFb}/>
         return (
-            <div className="App">
-               <div mapview={mapview}>{view}</div>
-                <div className="footerNav row">
-                    {/* <div className="col-auto mx-auto borderRule" onClick={this.viewMap}><img src={MapIcon} className="footer-icon" alt="Map Icon"></img><br />Map</div><div className="col-auto mr-auto" onClick={this.viewList}><img src={ListIcon} className="footer-icon" alt="List Icon"></img><br />List</div> */}
-                </div>
+            <div className="TeacherInteraction">
+                <RequestModal/>
+               <div >{view}</div>
             </div>
         );
     }

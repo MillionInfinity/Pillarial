@@ -1,0 +1,99 @@
+div.slide-pane__header {
+    background-color: #F8AD16;
+    min-height:200px;
+    border-bottom: none;
+}
+
+.slide-pane__close {
+    display: none;
+}
+
+.filterBtn {
+    color: #ED7529;
+}
+
+.rdr-Day.is-selected.is-inRange {
+    background: #e7e7e7 !important;
+    background-color: #e7e7e7 !important;
+}
+
+.rdr-Day.is-selected {
+    background: #e7e7e7 !important;
+    background-color: #e7e7e7 !important;
+}
+
+.slide-pane__overlay {
+    z-index: 10;
+}
+
+.filter {
+    background-color: #ED7529;
+    /* opacity: 0.8; */
+    z-index: 5;
+    position: absolute;
+    bottom: 6rem;
+    padding: 5px;
+    /* right: 0;*/
+    width: 100%;
+}
+
+.filter button {
+    color: white;
+    background-color:#ED7529;
+    border: 0;
+    font-size: 1.5rem;
+    /* margin-top:  */
+}
+
+.add {
+    display: flex;
+    justify-content: space-between;
+}
+
+.button {
+    background-color: #ffffff;
+    border: none;
+    color: #ED7529;
+}
+
+.submit {
+    background-color:#ED7529;
+    color: #ffffff;
+    border: none;
+    border-radius: .25em;
+}
+
+.slide-pane .slide-pane__title {
+    color : #ffffff;
+    margin-left:150px;
+}
+
+.slide-pane__header {
+    margin-top: 1.25em;
+    padding-left: 80px;
+}
+
+.slide-pane__content {
+    padding-top: 0px;
+}
+
+input {
+    border-color: #efefef;
+}
+
+/* ///////////////////////////////////// */
+
+/*********  Start media queries  *********/
+
+/* ///////////////////////////////////// */
+
+@media(min-width:768px) {
+    .filter {
+        width: 20%;
+        opacity: .9;
+        /* position: absolute; */
+        margin: auto;
+        left: 0;
+        right: 0;
+    }
+}
