@@ -61,7 +61,7 @@ handleImageChange(e) {
          let userId=this.props.user
          let teacherfile=this.state
          e.preventDefault();
-        //  SaveObjToFB(`users`,teacherfile);
+         SaveObjToFB(`users`,teacherfile);
        console.log(`users.uid`,)
      }
 

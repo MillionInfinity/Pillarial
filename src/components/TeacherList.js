@@ -37,7 +37,7 @@ class TeacherList extends React.Component {
       date: '',
       due: '',
       state: '',
-      rate: 3.25,
+      rate: 45,
       hours: 0,
       totalPaid: 0
     };
@@ -62,10 +62,10 @@ class TeacherList extends React.Component {
     });
   }
   handleExpense(e) {
-    const newExpense = 3.25;
+    const newExpense = this.props.yourRate;
     this.setState({
       expense: newExpense,
-      totalPaid: this.state.hour * 3.25
+      totalPaid: this.state.hour * this.props.yourRate
     });
   }
   handleChange(e) {
@@ -129,7 +129,7 @@ class TeacherList extends React.Component {
                                 <ReactStars/>
                                 </div>
                                 <div className="col-4">
-                                <p className="text-right yourRate">$ {this.props.yourRate}</p>
+                                <p className="text-right yourRate"value={this.props.yourRate}>$ {this.props.yourRate}</p>
                                 </div>
                                 </div>
                                 <h6>{this.props.specializedOn}</h6>
