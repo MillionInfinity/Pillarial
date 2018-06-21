@@ -1,7 +1,5 @@
 import React, { Component } from "react";
 import { Map, InfoWindow, Marker, GoogleApiWrapper } from "google-maps-react";
-// import { BrowserRouter as Router, Route, Link, Switch, Redirect } from "react-router-dom";
-
 import addUser1 from '../img/icons/man.png';
 import ReactStars from '../components/Reactstars';
 import '../App.css';

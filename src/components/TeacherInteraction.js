@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
-
 import TeacherData from './TeacherData';
 import { GetFromFB } from './UserIntr/auth';
-import RequestModal from './RequestModal';
+
+
 
 
 
@@ -30,7 +30,7 @@ class TeacherInteraction extends Component {
           let view = <TeacherData data={this.state.teaFb}/>
         return (
             <div className="TeacherInteraction">
-                <RequestModal/>
+          
                <div >{view}</div>
             </div>
         );

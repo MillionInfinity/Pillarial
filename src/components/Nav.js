@@ -41,6 +41,7 @@ class Nav extends Component{
         render() {
             return (
                 <div>
+                    
                     <nav class="navbar fixed-top">
                         <a class="navbar-brand" ></a>
                 <div ref={ref => this.el = ref}>

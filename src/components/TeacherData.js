@@ -1,6 +1,7 @@
 import React from 'react';
-
+import Nav from './Nav';
 import TeacherList from './TeacherList';
+
 import './ListItem.css';
 
 let TeacherData = (props) => {
@@ -23,12 +24,14 @@ let TeacherData = (props) => {
                />
         </div>)
     return (
+       <div>
         <div className="container-fluid">
-            <p className="h_text-center"> TeacherData 27</p>
-            <div className="ListDiv">{allTeachers}</div>
-          
-
-        </div>
+            <Nav/>
+           <div className="ListDiv">{allTeachers}</div>
+           </div>
+       
+            </div>
+    
     );
     
 }

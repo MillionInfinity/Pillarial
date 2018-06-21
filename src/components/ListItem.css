@@ -27,16 +27,15 @@ div.text-left.sidemark{
   top:5px;
 }
 
-.col-md-8.check {
+#rolli{
     background-color: white;
     border: 1px solid rgb(204, 199, 199);
     border-radius: 2px;
-
-    /* max-height: auto;
-    min-height: 105px;*/
-    margin: 10px;
-     box-shadow: 2px 2px 5px #c7c5c5;
-}
+    /* min-height: 250px; */
+    /* margin-bottom: 20px; */
+    box-shadow: 2px 2px 5px #c7c5c5;
+    
+ }  
 
 .descrip {
     margin-top: .5rem;
@@ -50,11 +49,13 @@ div.text-left.sidemark{
 }
 #rowli {
     /* background-color:#ED7529; */
+
+ 
 }
 
 ul p {
     display: inline-block;
-    margin-left: 5px;
+    /* margin-left: 5px; */
     text-decoration: none;
     font-size: 11px;
 }
@@ -83,6 +84,23 @@ a.more {
 }
 .userPicture{
     border-radius:50% ;
-    border:5px solid #ED7529;
+    border:2px solid #ED7529;
     
+}
+.techerList{
+    position:relative;
+    top: 80px;
+    min-height: 100px;
+    margin-bottom: 10px;
+    background-color: #B3D543;
+}
+.return{
+    position:relative;
+    top: 600px;
+    left:3px;
+}
+.next {
+    position: relative;
+    top: 600px;
+    left: 280px;
 }

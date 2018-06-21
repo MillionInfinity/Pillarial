@@ -17,12 +17,12 @@ import Welcome from './Welcome';
 import H1 from './H1';
 import AllButtons from './AllButtons';
 import * as routes from './router/routes';
-
+ 
 class Main extends Component{
   render (){
     return(
       <div>
-        {/* <MyTeacherProfile/> */}
+     
       <Switch>
       <Route exact path={routes.HOME} component={Home} />
       <Route exact path={routes.PROFILE} component={Profile} />
