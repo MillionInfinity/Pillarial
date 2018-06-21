@@ -81,7 +81,7 @@ class Profile extends Component {
                            <Nav/>
                 <Link to={`/`} className='backLink'>
 
-                    <a className="text-right"><img src={Return1} className='image-fluid return' alt="return" style={{ width: "35px" }} /></a>
+                    <a className="text-right"><img src={Return1} className='image-fluid return' alt="return" style={{ width: "35px" }}/></a>
                 </Link>
                 <Link to={`/MapContainer`} className='NextLink'>
 

@@ -2,7 +2,13 @@ import React, {Component} from 'react';
 import '../App.css';
 import { Link} from "react-router-dom";
 import {googleProvider, rebase} from './UserIntr/constants';
+import Profile from './Profile';
+import MapContainer from './MapContainer';
 import Nav from './Nav';
+import Return1 from '../img/icons/return.png';
+import Next from '../img/icons/next.png';
+import './ListItem.css';
+
 
 export function SaveObjToFB(endpoint, objToSave, ) {
 
@@ -19,9 +25,9 @@ export function SaveObjToFB(endpoint, objToSave, ) {
         .then((result) => {
             // console.log("saved something to firebase and this was the result:", result);
             return result;
+
         })
 }
-
 class AddStudent extends Component {
     constructor(props) {
         super(props);
@@ -55,12 +61,13 @@ class AddStudent extends Component {
         });
       }
 
-    handleSubmit(e) {
+    handleSubmit(event) {
         console.log("some thing", this.state);
-       let studentpro = this.state
-        e.preventDefault();
-        SaveObjToFB(`student/`, studentpro);
+      let studentpro=this.State
+       SaveObjToFB(`student/`,studentpro);
     }
+
+
     render() {
         let { imagePreviewUrl } = this.state;
         let $imagePreview = null;
@@ -71,6 +78,14 @@ class AddStudent extends Component {
         return (
            <div>
            <Nav/>
+                <Link to={`/Profile`} className='backLink'>
+
+                    <a className="text-right"><img src={Return1} className='image-fluid return' alt="return" style={{ width: "35px" }} /></a>
+                </Link>
+                <Link to={`/MapContainer`} className='NextLink'>
+
+                    <a className="text-right"><img src={Next} className='image-fluid next' alt="return" style={{ width: "35px" }} /></a>
+                </Link>
             <div className="student">
                 <div className="container-fluid" >
                     <div className="row">
@@ -101,7 +116,7 @@ class AddStudent extends Component {
                                     <div className="text-center m-4">
 
                                    <button className={"btn-red mr-4 "} link="" name="Submit" type="button" onClick={this.handleSubmit}>Add</button>
-                              
+
                                    </div>
                                 </form>
                             </div>
