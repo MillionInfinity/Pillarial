@@ -1,7 +1,5 @@
 import React, {Component} from 'react';
 import '../App.css';
-import main1 from '../img/icons/add-user.png';
-import Button from '../components/Button.js';
 import { Link} from "react-router-dom";
 
 

@@ -1,0 +1,12 @@
+ .navbar{
+   position:fixed;
+}
+/* div.slide-pane__header {
+    background-color: #f49c1e;
+    min-height: 200px;
+    border-bottom: none;
+} */
+div.isNear {
+    position:relative;
+    top: 50px;
+}
