@@ -8,6 +8,7 @@ class H1 extends Component {
         return (
             <div className="m-5 pt-5 text-center">
                 <h1 className="text-center pillar">PILLARIAL</h1>
+                <p>Teachers App</p>
 
             </div>
         );

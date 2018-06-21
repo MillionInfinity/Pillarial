@@ -90,7 +90,7 @@ class Profile extends Component {
             <div className="Profile">
                 <div className="container-fluid" >
                     <div className="row">
-                        <div className="col m-3">
+                        <div className="col m-3 myPro">
                             <div className="text-center">
 
                                 {$imagePreview}
@@ -106,7 +106,7 @@ class Profile extends Component {
                         <div className="row ">
                             <div className="col-1"></div>
                             <div className= "col-10 m-4" >
-                                <legend className="text-center">SIGN UP</legend>
+                                <legend className="text-center">Parents Profile</legend>
                                 <form className="form-horizontal">
                                     <p><label></label><input className="form-control" name="firstName" placeholder="First Name" value={this.state.value} onChange={this.handleChange} /></p>
                                     <p><label></label><input className="form-control" name="lastName" placeholder="Last Name" value={this.state.value} onChange={this.handleChange} /></p>

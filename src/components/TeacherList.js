@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
-import TeachersProfile from '../components/TeachersProfile';
-
+import './ListItem.css';
 import man from '../img/icons/man.png';
 import ReactStars from '../components/Reactstars';
 import { googleProvider, rebase } from './UserIntr/constants';
@@ -38,7 +37,7 @@ class TeacherList extends React.Component {
       date: '',
       due: '',
       state: '',
-      rate: 3.25,
+      rate: 45,
       hours: 0,
       totalPaid: 0
     };
@@ -63,10 +62,10 @@ class TeacherList extends React.Component {
     });
   }
   handleExpense(e) {
-    const newExpense = 3.25;
+    const newExpense = this.props.yourRate;
     this.setState({
       expense: newExpense,
-      totalPaid: this.state.hour * 3.25
+      totalPaid: this.state.hour * this.props.yourRate
     });
   }
   handleChange(e) {
@@ -95,31 +94,32 @@ class TeacherList extends React.Component {
     };
   }
   render() {
+    const userimage = this.props.imagePreviewUrl ? this.props.imagePreviewUrl :man;
     return (
-      <div className="container-fluid">
-
+      < div className="container-fluid techerList card" >
       <div className="container">
-        <div id="rowli" className="row">
-          <div className="col-md-2"></div>
-          <div className="col-md-8 check">
-            <h5 className="descrip">{this.props.firstName}</h5>
-            <p>{this.props.lastName}</p>
-            <ul className="listl">
-              <p><strong>First Name:</strong> {this.props.firstName}</p>
-              <p><strong>Last Name:</strong> {this.props.lastName}</p>
-              <p><strong>Subjects:</strong> {this.props.specializedOn}</p>
+          <div id="rowli" className="row" overflow-y=" scroll">
+          <div className="col-2 mt-3">
+              <img className="userPicture" src={userimage} alt="user" style={{width:'50px'}}/>
+          </div>
+            <div className="col-10 check" >
+             <ul className="listl"> 
+                <h5> {this.props.firstName}<span> {this.props.lastName}</span></h5>
+             
+              <p>{this.props.specializedOn}</p>
               <br />
-              <a href="#" className="more" onClick={this.toggle}>Teaachers List line 113</a>
+              <ReactStars/>
+                <a href="#" className="more" onClick={this.toggle}>Contact  {this.props.firstName} </a>
             </ul>
           </div>
-          <div className="col-md-2"></div>
+
         </div>
          {/* <Button color="danger" onClick={this.toggle}>{this.props.buttonLabel}</Button>  */}
             <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
                     <ModalHeader toggle={this.toggle}>
                         <div className="row">
                             <div className="col-2">
-                  <img src={man} alt='' className="img-circle" src={this.props.imagePreviewUrl}/>
+                  <img src={man} alt='' className="img-circle" src={userimage}/>
                             </div>
                             <div className="col-1"></div>
                             <div className="col-8">
@@ -129,7 +129,7 @@ class TeacherList extends React.Component {
                                 <ReactStars/>
                                 </div>
                                 <div className="col-4">
-                                <p className="text-right yourRate">$ {this.props.yourRate}</p>
+                                <p className="text-right yourRate"value={this.props.yourRate}>$ {this.props.yourRate}</p>
                                 </div>
                                 </div>
                                 <h6>{this.props.specializedOn}</h6>

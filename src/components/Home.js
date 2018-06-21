@@ -5,6 +5,7 @@ import MapContainer from '../components/MapContainer';
 import main from '../img/icons/home.png';
 import H1 from '../components/H1';
 import Welcome from '../components/Welcome';
+import TeacherProfile1 from './TeacherProfile1';
 class Home extends Component {
     constructor(props) {
         super(props);
@@ -55,16 +56,12 @@ class Home extends Component {
            return(
              <div>
                <Welcome/> user={this.state.user} logoutApp={this.logoutApp}
-            
-             </div>
+            </div>
            )
          }else {
            return(
              <div>
-              
-               <Welcome />
-            
-              
+             <Welcome/>
              </div>
     
            );
@@ -85,24 +82,3 @@ export default Home;
 
 
 
-// class App extends Component {
-//   state={
-//
-//   }
-//   render() {
-//     return (
-//       <div >
-//
-//
-        {/* <Route exact path={'/'} component={Home}/>
-        <Route exact path='/Profiles' component={Profiles}/>
-        <Route exact path='/Payment' component={Payment} />
-        <Route exact path='/TeacherProfile' component={TeacherProfile}/>
-        <Route exact path='/AddStudents' component={AddStudents}/>
-        <Route exact path = '/MapContainer' component={MapContainer}/> */}
-//       </div>
-//     );
-//   }
-// }
-//
-// export default App;

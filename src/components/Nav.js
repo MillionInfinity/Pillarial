@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {BrowserRouter as Router, Route, Link, Switch, Redirect} from "react-router-dom";
+import { Link} from "react-router-dom";
 import {Collapse, Button, CardBody, Card} from 'reactstrap';
 import CollapseExample from './CollapseExample';
 import Modal from 'react-modal';
@@ -8,7 +8,6 @@ import 'react-sliding-pane/dist/react-sliding-pane.css';
 import ribbonmark from '../img/icons/ribbon-mark.png';
 import './ListItem.css';
 import TeacherList from './TeacherList';
-import  MapContainer  from './MapContainer';
 import  Profile from './Profile';
 import RequestModal from './RequestModal';
 class Nav extends Component{
@@ -42,7 +41,8 @@ class Nav extends Component{
         render() {
             return (
                 <div>
-                <nav class="navbar ">
+                    
+                    <nav class="navbar fixed-top">
                         <a class="navbar-brand" ></a>
                 <div ref={ref => this.el = ref}>
                     <div className='text-left sidemark'>
@@ -76,7 +76,7 @@ class Nav extends Component{
                     </SlidingPane>
                 </div>
                 </nav>
-                 {/* <MapContainer/> */}
+                 
                 {/* <RequestModal/> */}
                 </div>
             );
