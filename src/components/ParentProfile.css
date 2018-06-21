@@ -1,0 +1,17 @@
+div.parentprofile{
+    position:relative;
+    left:3%;
+    margin-top: 35px;
+}
+.row{
+    position:absolute;
+    top:100px;
+}
+h2.text-left{
+    margin-left:8px;
+    margin-bottom: 30px;
+}
+.container{
+   /* background-color:#ED7529; */
+   
+}

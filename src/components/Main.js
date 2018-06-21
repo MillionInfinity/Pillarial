@@ -12,17 +12,18 @@ import MyTeacherProfile from './MyTeacherProfile';
 import TeacherInteraction from './TeacherInteraction';
 import TeacherData from './TeacherData';
 import RequestModal from './RequestModal';
-import NavTea from './NavTea';
+
 import Welcome from './Welcome';
 import H1 from './H1';
 import AllButtons from './AllButtons';
+import ParentProfile from './ParentProfile';
 import * as routes from './router/routes';
  
 class Main extends Component{
   render (){
     return(
       <div>
-     
+
       <Switch>
       <Route exact path={routes.HOME} component={Home} />
       <Route exact path={routes.PROFILE} component={Profile} />
@@ -36,10 +37,11 @@ class Main extends Component{
       <Route exact path={routes.NAV} component={Nav}/>
       <Route exact path={routes.MYTEACHERPROFILE} component={MyTeacherProfile}/>
       <Route exact path={routes.H1} component={H1}/>
-      <Route exact path={routes.NAVTEA} component={NavTea}/>
+     
       <Route exact path={routes.REQUESTMODAL} component={RequestModal}/>
       <Route exact path={routes.WELCOME} component={Welcome}/>
        <Route exact path={routes.ALLBUTTONS} components={AllButtons}/>
+       <Route exact path={routes.PARENTPROFILE} components={ParentProfile}/>
       </Switch>
       </div>
 

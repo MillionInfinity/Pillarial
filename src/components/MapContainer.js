@@ -9,7 +9,7 @@ import Nav from './Nav';
 import Return1 from '../img/icons/return.png';
 import Next from '../img/icons/next.png';
 import { Link } from 'react-router-dom';
-import './ListItem.css';
+
 
 export class MapContainer extends Component {
     constructor(props) {
@@ -19,17 +19,30 @@ export class MapContainer extends Component {
             showingInfoWindow: false,
             activeMarker: {},
             selectedPlace: {},
-            teaFb: [],
+            teaFB: [],
             zoom: 25,
             imagePreviewUrl: ''
         };
         /* binding event to state */
         this.onMarkerClick = this.onMarkerClick.bind(this);
     }
-    componentDidMount() {
-        console.log("Rendered", this.props.data);
-        this.props.datas
+
+
+        componentDidMount() {
+
+        this.props.datas,
+            GetFromFB('teacher').then(data => {
+                let teachermap = Object.values(data);
+                console.log("map-container line 34", teachermap);
+                this.setState({
+                    teaFB: teachermap
+                })
+
+            }).catch(err=>{
+                console.error(err)
+            })
     }
+
     /* marker event handler */
     onMarkerClick(props, marker, e) {
 
@@ -47,14 +60,20 @@ export class MapContainer extends Component {
         return (
             <div>
                 <Nav />
-            
+
                 <Map style={{ minWidth: "200px", minHeight: "200px" }}
                     google={this.props.google} zoom={14}
                     className={"map"} initialCenter={{ lat: 36.149937, lng: -86.812866 }}>
+{
+                      this.state.teaFB.map((item,index)=>(
+                    <Marker key={item.key} title={'This is a point'} onClick={this.onMarkerClick} position={{ lat:parseFloat(item.address), lng:parseFloat(item.address1) }}
+                        firstName={item.firstName}
+                        lastName={item.lastName}
+                        phone={item.phone}
+                         />
 
-
-                    <Marker title={'This is a point'} onClick={this.onMarkerClick} position={{ lat: 36.149937, lng: -86.812866 }}
-                        name={'this.props.data'} />
+                      ))
+}
                     <InfoWindow marker={this.state.activeMarker} visible={this.state.showingInfoWindow}>
                         <div className="MapMarkerInfo">
                             <div className="container-fluid">
@@ -64,7 +83,7 @@ export class MapContainer extends Component {
                                     </div>
                                     <div className="col-6">
                                         <h6 className="mt-2 text-left"></h6>
-                                        <p className="text-left">1 2 3 4 5:{this.state.selectedPlace.firstName} </p>
+
                                         <p className="text-right dollar">$45 </p>
                                     </div>
                                 </div>

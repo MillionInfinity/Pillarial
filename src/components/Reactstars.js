@@ -243,7 +243,7 @@ ReactStars.propTypes = {
 ReactStars.defaultProps = {
     edit: true,
     half: true,
-    value: 0,
+    value: 3.5,
     count: 5,
     char: '★',
     size: 15,

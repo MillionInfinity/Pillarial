@@ -8,28 +8,34 @@ import Return1 from '../img/icons/return.png';
 import Next from '../img/icons/next.png';
 import {Link} from 'react-router-dom';
 import './ListItem.css';
+import { googleProvider, rebase } from './UserIntr/constants';
+export function SaveObjToFB(endpoint, objToSave,) {
 
+    return rebase.push(endpoint, {
+        data: objToSave,
+        then(err) {
+            if (err) { <p> some thing wrong </p>
+            } else if (!err) {
+
+            }
+        }
+    })
+        .then((result) => {
+            // console.log("saved something to firebase and this was the result:", result);
+            return result;
+        })
+}
 class Profile extends Component {
     constructor(props) {
         super(props);
         this.state =
             {
-
-                firstName: '',
-                lastName: '',
-                phone: '',
-                address: '',
-                zipCode: '',
-                file: '',
-                imagePreviewUrl: '',
-                state: ''
+         parent:[]
             };
         this.handleImageChange = this.handleImageChange.bind(this);
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
-        // this.getprofile = this.getprofile.bind(this);
-        this.addUserProfile = this.addUserProfile.bind(this)
-    }
+          }
     handleImageChange(e) {
         e.preventDefault();
 
@@ -52,34 +58,17 @@ class Profile extends Component {
         this.setState({
             [event.target.name]: event.target.value
         });
-        console.log("change", event.target.value);
+      
 
     }
 
-    handleSubmit(event) {
+    handleSubmit(e) {
         console.log("some thing", this.state);
-        this.state,
-            this.addUserProfile()
+      let parent=this.state
+
+        SaveObjToFB(`parent/`, parent);    
     }
   
-    
-
-
-    addUserProfile(name) {
-        let userProfileData = {
-            "firstName": this.state.firstName,
-            "lastName": this.state.lastName,
-            "phone": this.state.phone,
-            "address1": this.state.address1,
-            "address2": this.state.address2,
-            "zipCode": this.state.zipCode,
-                       "imagePreviewUrl": this.state.imagePreviewUrl
-        }
-
-        console.log("profile to database");
-
-    }
-
     render() {
         let { imagePreviewUrl } = this.state;
         let $imagePreview = null;
@@ -92,7 +81,7 @@ class Profile extends Component {
                            <Nav/>
                 <Link to={`/`} className='backLink'>
 
-                    <a className="text-right"><img src={Return1} className='image-fluid return' alt="return" style={{ width: "35px" }} /></a>
+                    <a className="text-right"><img src={Return1} className='image-fluid return' alt="return" style={{ width: "35px" }}/></a>
                 </Link>
                 <Link to={`/MapContainer`} className='NextLink'>
 

@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {googleProvider, rebase} from './UserIntr/constants';
 import Home from './Home';
-import NavTea from './NavTea';
+
 import './NavTea.css'
 import MapContainer from './MapContainer';
 import {BrowserRouter as Router, Route, Link, Switch, Redirect} from "react-router-dom";
@@ -75,7 +75,7 @@ handleImageChange(e) {
 
         return(
             <div>
-                <NavTea/>
+              
                 <div className="Profile isNear">
                     <div className="container-fluid" >
                         <div className="row">

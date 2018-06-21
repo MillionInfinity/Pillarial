@@ -9,6 +9,7 @@ import ribbonmark from '../img/icons/ribbon-mark.png';
 import './ListItem.css';
 import TeacherList from './TeacherList';
 import  Profile from './Profile';
+import ParentProfile from './ParentProfile';
 import RequestModal from './RequestModal';
 import Payments from './Payments';
 import TeacherInteraction from './TeacherInteraction';
@@ -59,7 +60,7 @@ class Nav extends Component{
                         width='80%'
 
                         onRequestClose={() => this.setState({ isPaneOpenLeft: false })}>
-                           <Link to={'/Profile'}>
+                           <Link to={'/ParentProfile'}>
                             <p>My Profile</p>
                             </Link>
                             <hr></hr>
