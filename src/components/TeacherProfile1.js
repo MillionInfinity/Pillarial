@@ -50,7 +50,7 @@ handleImageChange(e) {
 }
      handleChange(e){
         //  console.log(this.state);
-       
+
          this.setState({
              [e.target.name]: e.target.value
          });
@@ -60,9 +60,10 @@ handleImageChange(e) {
          console.log("submit clicked",this.props.user);
          let userId=this.props.user
          let teacherfile=this.state
-         e.preventDefault();
-         SaveObjToFB(`users`,teacherfile);
+
+         SaveObjToFB(`teacher/`,teacherfile);
        console.log(`users.uid`,)
+       e.preventDefault();
      }
 
     render(){

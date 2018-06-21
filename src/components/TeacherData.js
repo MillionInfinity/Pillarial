@@ -26,8 +26,8 @@ let TeacherData = (props) => {
                />
         </div>)
     return (
-       <div>
-        <div className="container-fluid">
+        <div>
+            <div className="container-fluid" >
             <Nav/>
                 <Link to={`/Profile`} className='backLink'>
 

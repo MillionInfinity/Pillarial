@@ -7,7 +7,7 @@ import Nav from './Nav';
 import './ListItem.css';
 import { GetFromFB } from './UserIntr/auth';
 import { googleProvider, rebase } from './UserIntr/constants';
-
+import MapContainer from './MapContainer';
 export function SaveObjToFB(endpoint, objToSave,) {
 
     return rebase.push(endpoint, {
@@ -33,7 +33,7 @@ class Payments extends Component {
     this.handleChange=this.handleChange.bind(this);
     this.handleSubmit=this.handleSubmit.bind(this);
   }
-    
+
   handleChange(event) {
          console.log("user", event.target.name);
          this.setState({
@@ -51,7 +51,7 @@ class Payments extends Component {
          <div className="container-fluid">
                   <Nav/>
                 <Link to={`/`} className='backLink'>
-               
+
                     <a className="text-right"><img src = {Return1} className='image-fluid return' alt = "return" style = {{width:"35px"}}/></a>
                 </Link>
                 <Link to={`/MapContainer`} className='NextLink'>
@@ -70,8 +70,8 @@ class Payments extends Component {
                  <p><input type="tel" className="form-control mt-2" name="cardExpiry" placeholder="MM / YY"  required value={this.state.value} onChange={this.handleChange}/></p>
                  <p><input type="tel" className="form-control mt-2 mb-4" name="cardCVC" placeholder="CVC"  required value={this.state.value} onChange={this.handleChange}/></p>
                 <div className='text-center m-4'>
-                    <Link to={`/TeacherIteraction`}>
-                <button className="btn-green" link="" name="Submit" type="button" onClick={this.handleSubmit}>Submit</button>
+                    <Link to={'/MapContainer'}>
+                      <button className="btn-green" link="" name="Submit" type="button" onClick={this.handleSubmit}>Submit</button>
                     </Link>
               </div>
              </form>
