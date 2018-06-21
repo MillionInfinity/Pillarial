@@ -36,7 +36,7 @@ h3 {
   border: solid white 1px;
   border-radius: 5px;
   color: white;
-  /* height: 2.1em;  b0d345*/  
+  /* height: 2.1em;  b0d345*/
 }
 #signup{
     background-color: #b0d345;
@@ -192,4 +192,8 @@ margin-left: 0px;
   -moz-border-radius: 50px;
   -ms-border-radius: 50px;
   -o-border-radius: 50px;
+}
+.student{
+  position:relative;
+  top:70px;
 }

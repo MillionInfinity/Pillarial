@@ -4,7 +4,7 @@ import man from '../img/icons/man.png';
 import ReactStars from '../components/Reactstars';
 import { googleProvider, rebase } from './UserIntr/constants';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
-
+import { Link} from "react-router-dom";
 export function SaveObjToFB(endpoint, objToSave, ) {
 
   return rebase.push(endpoint, {
@@ -36,6 +36,7 @@ class TeacherList extends React.Component {
       time: '',
       date: '',
       due: '',
+      yourName:'',
       state: '',
       rate: 45,
       hours: 0,
@@ -62,10 +63,10 @@ class TeacherList extends React.Component {
     });
   }
   handleExpense(e) {
-    const newExpense = this.props.yourRate;
+    const newExpense = 45;
     this.setState({
       expense: newExpense,
-      totalPaid: this.state.hour * this.props.yourRate
+      totalPaid: this.state.hour * 45
     });
   }
   handleChange(e) {
@@ -82,6 +83,7 @@ class TeacherList extends React.Component {
   }
   contactTeacher = () => {
     let teacherContactData = {
+      "yourName": this.state.yourName,
       "subject": this.state.subject,
       "topic": this.state.topic,
       "SubTopic": this.state.subTopic,
@@ -103,9 +105,9 @@ class TeacherList extends React.Component {
               <img className="userPicture" src={userimage} alt="user" style={{width:'50px'}}/>
           </div>
             <div className="col-10 check" >
-             <ul className="listl"> 
+             <ul className="listl">
                 <h5> {this.props.firstName}<span> {this.props.lastName}</span></h5>
-             
+
               <p>{this.props.specializedOn}</p>
               <br />
               <ReactStars/>
@@ -139,6 +141,7 @@ class TeacherList extends React.Component {
                     <ModalBody>
                      <div className="mt-4" style={{ margin: '15px' }}>
                         <form className="form-horizontal">
+                           <p><label></label><input className="form-control" name="yourName" placeholder="Your full name" value={this.state.value} onChange={this.handleChange}/></p>
                                   <p><label></label><input className="form-control" name="subject" placeholder="Subjects you need support" value={this.state.value} onChange={this.handleChange}/></p>
                                   <p><label></label><input className="form-control" name="topic" placeholder="Title of your topic" value={this.state.value} onChange={this.handleChange}/></p>
                                   <p><label></label><input className="form-control" name="subTopic" placeholder="If it has sub-title" value={this.state.value} onChange={this.handleChange}/></p>
@@ -147,7 +150,9 @@ class TeacherList extends React.Component {
                                   <p><label></label><input className="form-control" type="date" name="Date" placeholder="Date" value={this.state.value} onChange={this.handleChange} /></p>
                                   <div className="text-center m-4">
                                   <p>Total Due:{this.state.totalPaid}$</p>
-                                 <button className={"btn-red mr-4 "} link="" name="Submit" type="button" onClick={this.handleSubmit}>Request</button>
+                                  <Link to="MapContainer/">
+                                 <button className={"btn-red mr-4 "}  name="Submit" type="button" onClick={this.handleSubmit}>Request</button>
+                                 </Link>
                                  </div>
                               </form>
 

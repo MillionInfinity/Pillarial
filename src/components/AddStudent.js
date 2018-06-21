@@ -1,29 +1,39 @@
 import React, {Component} from 'react';
 import '../App.css';
 import { Link} from "react-router-dom";
+import {googleProvider, rebase} from './UserIntr/constants';
+import Nav from './Nav';
 
+export function SaveObjToFB(endpoint, objToSave, ) {
+
+    return rebase.push(endpoint, {
+        data: objToSave,
+        then(err) {
+            if (err) {
+                <p>some thing wrong</p>
+            } else if (!err) {
+
+            }
+        }
+    })
+        .then((result) => {
+            // console.log("saved something to firebase and this was the result:", result);
+            return result;
+        })
+}
 
 class AddStudent extends Component {
     constructor(props) {
         super(props);
         this.state =
             {
-
-                firstName: '',
-                lastName: '',
-                grade: '',
-                subject: '',
-                time: '',
-                file: '',
-                meet: '',
-                state: ''
+         studentpro:[],
+           imagePreviewUrl:''
             };
         this.handleImageChange = this.handleImageChange.bind(this);
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
-        // this.getprofile = this.getprofile.bind(this);
-        this.addUserProfile = this.addUserProfile.bind(this)
-    }
+        }
     handleImageChange(e) {
         e.preventDefault();
 
@@ -38,65 +48,35 @@ class AddStudent extends Component {
         };
         reader.readAsDataURL(file);
     }
-
-
-
     handleChange(event) {
-        console.log("user", event.target.name);
-        this.setState({
+      console.log(this.state);
+              this.setState({
             [event.target.name]: event.target.value
         });
-        console.log("change", event.target.value);
+      }
 
-    }
-
-    handleSubmit(event) {
+    handleSubmit(e) {
         console.log("some thing", this.state);
-        this.state,
-            this.addUserProfile()
+       let studentpro = this.state
+        e.preventDefault();
+        SaveObjToFB(`student/`, studentpro);
     }
-   
-
-
-    addUserProfile(name) {
-        let userProfileData = {
-            "firstName": this.state.firstName,
-            "lastName": this.state.lastName,
-            "grade": this.state.grade,
-            "subject": this.state.subject,
-            "time": this.state.time,
-            "meet": this.state.meet,
-                       "imagePreviewUrl": this.state.imagePreviewUrl
-        }
-
-        console.log("profile to database");
-
-        fetch('http://localhost:3000/Profile', {
-            method: 'POST', // or 'PUT'
-            body: JSON.stringify(userProfileData), // data can be `string` or {object}!
-            headers: new Headers({
-                'Content-Type': 'application/json'
-            })
-        }).then(res => res.json())
-            .catch(error => console.error('sorry Error try to send it again', error))
-            .then(response => console.log('Successfully posted to data base', response));
-    }
-
     render() {
         let { imagePreviewUrl } = this.state;
         let $imagePreview = null;
         if (imagePreviewUrl) {
-            $imagePreview = (<img src={imagePreviewUrl} />);
+            $imagePreview = (<img src={imagePreviewUrl} style={{ width:'100px'}}/>);
         }
 
         return (
-            <div className="Profile">
+           <div>
+           <Nav/>
+            <div className="student">
                 <div className="container-fluid" >
                     <div className="row">
                         <div className="col m-3">
                             <div className="text-center">
-
-                                {$imagePreview}
+                           {$imagePreview}
                                 <div className="form-group">
                                     <input id="Upload-photo" name="Upload photo" className="input-file" type="file" onChange={this.handleImageChange} />
                                     <label className="col-md-8 control-label" htmlFor="Upload photo" accept=".jpg, .jpeg ,.png"></label>
@@ -119,9 +99,9 @@ class AddStudent extends Component {
                                     <p><label></label><input className="form-control" name="meet" placeholder="Where Do want to Meet" value={this.state.value} onChange={this.handleChange} /></p>
 
                                     <div className="text-center m-4">
-                                        <Link to={'/MapContainer'}>
+
                                    <button className={"btn-red mr-4 "} link="" name="Submit" type="button" onClick={this.handleSubmit}>Add</button>
-                                 </Link>
+                              
                                    </div>
                                 </form>
                             </div>
@@ -131,6 +111,7 @@ class AddStudent extends Component {
 
 
                 </div>
+            </div>
             </div>
 
         );

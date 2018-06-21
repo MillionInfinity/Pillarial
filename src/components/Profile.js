@@ -3,8 +3,11 @@ import '../App.css';
 import Nav from './Nav';
 import Button from '../components/Button.js';
 import AddStudent from './AddStudent';
-import { BrowserRouter as Router, Route, Link, Switch, Redirect } from "react-router-dom";
-
+// import { BrowserRouter as Router, Route, Link, Switch, Redirect } from "react-router-dom";
+import Return1 from '../img/icons/return.png';
+import Next from '../img/icons/next.png';
+import {Link} from 'react-router-dom';
+import './ListItem.css';
 
 class Profile extends Component {
     constructor(props) {
@@ -87,6 +90,17 @@ class Profile extends Component {
         return (
             <div>
                            <Nav/>
+                <Link to={`/`} className='backLink'>
+
+                    <a className="text-right"><img src={Return1} className='image-fluid return' alt="return" style={{ width: "35px" }} /></a>
+                </Link>
+                <Link to={`/MapContainer`} className='NextLink'>
+
+                    <a className="text-right"><img src={Next} className='image-fluid next' alt="return" style={{ width: "35px" }} /></a>
+                </Link>
+
+
+
             <div className="Profile">
                 <div className="container-fluid" >
                     <div className="row">

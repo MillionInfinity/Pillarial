@@ -10,6 +10,8 @@ import './ListItem.css';
 import TeacherList from './TeacherList';
 import  Profile from './Profile';
 import RequestModal from './RequestModal';
+import Payments from './Payments';
+import TeacherInteraction from './TeacherInteraction';
 class Nav extends Component{
 
         constructor(props) {
@@ -41,9 +43,9 @@ class Nav extends Component{
         render() {
             return (
                 <div>
-                    
-                    <nav class="navbar fixed-top">
-                        <a class="navbar-brand" ></a>
+
+                    <nav className="navbar fixed-top">
+                        <a className="navbar-brand" ></a>
                 <div ref={ref => this.el = ref}>
                     <div className='text-left sidemark'>
                     <img src={ribbonmark} alt="sidemark" onClick={() => this.setState({isPaneOpenLeft: true})} style={{width:'35px'}}/>
@@ -61,14 +63,18 @@ class Nav extends Component{
                             <p>My Profile</p>
                             </Link>
                             <hr></hr>
-                            <p>My Messages</p>
+                                <Link to={'/Profile'}>
+                                <p>My Request</p>
+                                </Link>
                             <hr></hr>
-                            <p>My History</p>
+                            <Link to={'/Payments'}>
+                            <p>Payment</p>
+                            </Link>
                             {/* <CollapseExample title="Date of Crime" form={<DateInput handleChange={this.props.handleChange} />} /> */}
                             <hr></hr>
-
-                            <p>My Request</p>
-
+                            <Link to={'/TeacherInteraction'}>
+                            <p>Request a teacher</p>
+                            </Link>
                             {/* <CollapseExample value={this.props.value} title="Location" form={<LocationInput handleChange={this.props.handleChange} />} /> */}
                             <hr></hr>
                             {/* <input className="submit" type="submit" value="Submit" onClick={(event) => { console.log("Submit pressed."), this.props.submit2(event), event.preventDefault() }} /> */}
@@ -76,7 +82,7 @@ class Nav extends Component{
                     </SlidingPane>
                 </div>
                 </nav>
-                 
+
                 {/* <RequestModal/> */}
                 </div>
             );

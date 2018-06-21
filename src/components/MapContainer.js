@@ -6,7 +6,10 @@ import '../App.css';
 import { GetFromFB } from './UserIntr/auth';
 import { rebase } from './UserIntr/constants';
 import Nav from './Nav';
-
+import Return1 from '../img/icons/return.png';
+import Next from '../img/icons/next.png';
+import { Link } from 'react-router-dom';
+import './ListItem.css';
 
 export class MapContainer extends Component {
     constructor(props) {
@@ -44,6 +47,7 @@ export class MapContainer extends Component {
         return (
             <div>
                 <Nav />
+            
                 <Map style={{ minWidth: "200px", minHeight: "200px" }}
                     google={this.props.google} zoom={14}
                     className={"map"} initialCenter={{ lat: 36.149937, lng: -86.812866 }}>

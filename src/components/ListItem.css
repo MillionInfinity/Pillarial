@@ -6,6 +6,7 @@ h1.h_text-center {
 
 body {
     font-family: 'Montserrat', sans-serif;
+    background-color: #f6f3ec;
 }
 h3 {
     /* marin-top:25%; */
@@ -85,6 +86,7 @@ a.more {
 .userPicture{
     border-radius:50% ;
     border:2px solid #ED7529;
+    min-height: 50px;
     
 }
 .techerList{
