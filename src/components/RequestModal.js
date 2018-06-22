@@ -5,10 +5,12 @@ import ReactStars from '../components/Reactstars';
 import {GetFromFB} from './UserIntr/auth';
 import { rebase } from './UserIntr/constants';
 import { Link } from "react-router-dom";
-import Nav from './Nav';
+import './NavTea.css';
 import Return1 from '../img/icons/return.png';
 import Next from '../img/icons/next.png';
-import './ListItem.css';
+import RequestModal1 from './RequestModal1';
+// import './ListItem.css';
+import NavTea from './NavTea';
 
 export function DeleteFromFB(endpoint, itemID){
   return rebase.remove(endpoint + "/" + itemID, function (err) {
@@ -29,7 +31,7 @@ class RequestModal extends Component{
       modal: false,
       teacherCont:[]
     };
-    // this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
     this.toggle = this.toggle.bind(this);
   }
   componentDidMount = () => {
@@ -50,11 +52,11 @@ class RequestModal extends Component{
       visible : true
     });
   }
-  // handleSubmit(event) {
-  //   console.log("some thing", this.state);
-  //   let st = this.State
+  handleSubmit(event) {
+    console.log("some thing", this.state);
+    let st = this.State
   //   SaveObjToFB(`student/`, studentpro);
-  // }
+  }
     render(){
     // console.log("requestModal line 38",this.state.teacherCont);
     const teacher=this.state.teacherCont.map((item, index)=>
@@ -112,7 +114,9 @@ class RequestModal extends Component{
 
                   </div>
                   <div className='col-3'>
-                       <button className={"btn-green mr-4"} link="" name="Submit" type="button">Accept</button>
+                    <Link to={'/RequestModal1'}>
+                    <button className={"btn-green mr-4"} link="" name="Submit" type="button" onClick={this.handleSubmit}>Accept</button>
+                    </Link>
                   </div>
                 </div>
                 </div>
@@ -129,8 +133,8 @@ class RequestModal extends Component{
 
 
 
-           <h2 className="text-center requestModa">All Requests you Have</h2>
-        <Nav/>
+           <h2 className="text-center requestModa">All the Requests that you have</h2>
+        <NavTea/>
           <Link to={`/Profile`} className='backLink'>
 
             <a className="text-right"><img src={Return1} className='image-fluid return' alt="return" style={{ width: "35px" }} /></a>
