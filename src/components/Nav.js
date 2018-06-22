@@ -9,6 +9,7 @@ import ribbonmark from '../img/icons/ribbon-mark.png';
 import './ListItem.css';
 import TeacherList from './TeacherList';
 import  Profile from './Profile';
+
 import ParentProfile from './ParentProfile';
 import RequestModal from './RequestModal';
 import Payments from './Payments';
@@ -44,8 +45,7 @@ class Nav extends Component{
         render() {
             return (
                 <div>
-
-                    <nav className="navbar fixed-top">
+                <nav className="navbar fixed-top">
                         <a className="navbar-brand" ></a>
                 <div ref={ref => this.el = ref}>
                     <div className='text-left sidemark'>
@@ -60,31 +60,18 @@ class Nav extends Component{
                         width='80%'
 
                         onRequestClose={() => this.setState({ isPaneOpenLeft: false })}>
-                           <Link to={'/ParentProfile'}>
-                            <p>My Profile</p>
-                            </Link>
-                            <hr></hr>
-                                <Link to={'/Profile'}>
-                                <p>My Request</p>
-                                </Link>
-                            <hr></hr>
                             <Link to={'/Payments'}>
                             <p>Payment</p>
                             </Link>
-                            {/* <CollapseExample title="Date of Crime" form={<DateInput handleChange={this.props.handleChange} />} /> */}
                             <hr></hr>
                             <Link to={'/TeacherInteraction'}>
                             <p>Request a teacher</p>
                             </Link>
-                            {/* <CollapseExample value={this.props.value} title="Location" form={<LocationInput handleChange={this.props.handleChange} />} /> */}
-                            <hr></hr>
-                            {/* <input className="submit" type="submit" value="Submit" onClick={(event) => { console.log("Submit pressed."), this.props.submit2(event), event.preventDefault() }} /> */}
 
                     </SlidingPane>
                 </div>
                 </nav>
 
-                {/* <RequestModal/> */}
                 </div>
             );
         }

@@ -98,7 +98,7 @@ class TeacherList extends React.Component {
   render() {
     const userimage = this.props.imagePreviewUrl ? this.props.imagePreviewUrl :man;
     return (
-      < div className="container-fluid techerList card" >
+      <div className="container-fluid techerList card">
       <div className="container">
           <div id="rowli" className="row" overflow-y=" scroll">
           <div className="col-2 mt-3">

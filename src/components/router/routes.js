@@ -14,7 +14,8 @@ export const H1 = '/H1';
 export const NAV  = '/Nav';
 export const PAYMENTREQUEST='/PaymentRequest';
 export const REQUESTMODAL = '/RequestModal';
-
 export const WELCOME ='/Welcome';
 export const ALLBUTTONS ='/AllButtons';
 export const PARENTPROFILE ='./ParentProfile';
+export const MYPE = './MyPe';
+export const REQUESTMODAL1 = '/RequestModal1';

@@ -3,8 +3,12 @@ import {Button, Modal, ModalHeader, ModalBody, ModalFooter} from 'reactstrap';
 import man from '../img/icons/man.png';
 import ReactStars from '../components/Reactstars';
 import {GetFromFB} from './UserIntr/auth';
-import { googleProvider, rebase } from './UserIntr/constants';
-
+import { rebase } from './UserIntr/constants';
+import { Link } from "react-router-dom";
+import Nav from './Nav';
+import Return1 from '../img/icons/return.png';
+import Next from '../img/icons/next.png';
+import './ListItem.css';
 
 export function DeleteFromFB(endpoint, itemID){
   return rebase.remove(endpoint + "/" + itemID, function (err) {
@@ -15,6 +19,9 @@ export function DeleteFromFB(endpoint, itemID){
     }
   })
 }
+
+
+
 class RequestModal extends Component{
   constructor(props) {
     super(props);
@@ -22,7 +29,7 @@ class RequestModal extends Component{
       modal: false,
       teacherCont:[]
     };
-    // this.handleCancel = this.handleCancel.bind(this);
+    // this.handleSubmit = this.handleSubmit.bind(this);
     this.toggle = this.toggle.bind(this);
   }
   componentDidMount = () => {
@@ -36,12 +43,6 @@ class RequestModal extends Component{
     });
 
   }
-  // handleCancel(e) {
-  //   console.log("this delete line 40", this.state.teacherCont);
-  //        visible: false
-  //        let deleteCard=this.state.teacherCont;
-  //        DeleteFromFB(`contactTeacher`,deleteCard)
-  // }
 
   toggle() {
     this.setState({
@@ -49,22 +50,22 @@ class RequestModal extends Component{
       visible : true
     });
   }
+  // handleSubmit(event) {
+  //   console.log("some thing", this.state);
+  //   let st = this.State
+  //   SaveObjToFB(`student/`, studentpro);
+  // }
     render(){
     // console.log("requestModal line 38",this.state.teacherCont);
     const teacher=this.state.teacherCont.map((item, index)=>
           <div key={item.key} className="ListDiv">
-              <p>Teacher {item.subject}</p>
-        <div className="container">
-           <div id="rowli" className="row">
+              {/* <p>Teacher {item.subject}</p> */}
+        <div id="reqeu" className="container">
+           <div id="rowlil" className="row">
               <div className="col-md-2"></div>
-              <div className="col-md-8 check">
-              
-                <h5 className="descrip"></h5>
-                <p></p>
+              <div className="col-md-8 request">
                 <ul className="listl">
-
-                  <a href="#" className="more" onClick={this.toggle}>Request from{this.props.subject}</a>
-
+                  <a href="#" className="reqmore" onClick={this.toggle}>Request from {item.yourName}</a>
                 </ul>
               </div>
               <div className="col-md-2"></div>
@@ -77,10 +78,10 @@ class RequestModal extends Component{
                  </div>
                  <div className="col-1"></div>
                  <div className="col-8">
-                <h5>Request from Parent{this.props.subject}</h5>
+                <h5>Request from Parent {item.yourName}</h5>
                 <ReactStars/>
 
-                <h6>{item.subject}</h6>
+                {/* <h6>{item.subject}</h6> */}
                 </div>
                   </div>
                 </ModalHeader>
@@ -88,7 +89,7 @@ class RequestModal extends Component{
               <ModalBody>
 
               <div className="mt-4" style={{margin:'15px'}}>
-                   
+
 
             <p><strong>Subject:</strong>{item.subject}</p>
             <p><strong>Topic:</strong>{item.topic}</p>
@@ -97,7 +98,7 @@ class RequestModal extends Component{
             <p><strong>Hours Requested:</strong> {item.hours}</p>
             <p><strong>Date Requested:</strong> {item.Date}</p>
             <p><strong>your Total Amount Gained:</strong> ${item.totalPaid} </p>
-              
+
 
               </div>
              </ModalBody>
@@ -105,32 +106,45 @@ class RequestModal extends Component{
                 <div className='container-fluid'>
                 <div className='row'>
                   <div className='col-2'>
-                    <button type="button" className="btn btn-secondary" data-dismiss="modal" onClick={this.handleCancel}>Decline</button>
+                       <button className={"btn-red mr-4"} link="" name="Submit" type="button">Decline</button>
                   </div>
                     <div className='col-7'>
 
                   </div>
                   <div className='col-3'>
-                    <Button>Accept</Button>
+                       <button className={"btn-green mr-4"} link="" name="Submit" type="button">Accept</button>
                   </div>
                 </div>
                 </div>
 
               </ModalFooter>
-            </Modal> 
+            </Modal>
            </div>
       </div>)
 
       console.log("teacher",teacher);
       return (
-         <div className="container-fluid">
-          {/* <p className="h_text-center"> RequestModal line 47</p> */}
+
+         <div className="container ">
+
+
+
+           <h2 className="text-center requestModa">All Requests you Have</h2>
+        <Nav/>
+          <Link to={`/Profile`} className='backLink'>
+
+            <a className="text-right"><img src={Return1} className='image-fluid return' alt="return" style={{ width: "35px" }} /></a>
+          </Link>
+          <Link to={`/MapContainer`} className='NextLink'>
+
+            <a className="text-right"><img src={Next} className='image-fluid next' alt="return" style={{ width: "35px" }} /></a>
+          </Link>
           <div className="ListDiv">{teacher}</div>
           <p className="h_text-center"></p>
 
-        </div> 
+        </div>
       );
-    
+
     }
 }
 export default RequestModal;

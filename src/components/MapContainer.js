@@ -70,52 +70,56 @@ export class MapContainer extends Component {
                         firstName={item.firstName}
                         lastName={item.lastName}
                         phone={item.phone}
+                        imagePreviewUrl={item.imagePreviewUrl}
+                        phone={item.phone}
+                        specializedOn={item.specializedOn}
+                        yourRate={item.yourRate}
+                        zipCode={item.zipCode}
                          />
 
+
                       ))
-}
+
+    }
                     <InfoWindow marker={this.state.activeMarker} visible={this.state.showingInfoWindow}>
-                        <div className="MapMarkerInfo">
+
+                         <div className="MapMarkerInfo">
                             <div className="container-fluid">
                                 <div className="row">
                                     <div className="col-4">
-                                        <img className="img-fluid markerimg" src={addUser1} alt="the real teacher" style={{ width: "100px" }} />
+                                        <img className="img-fluid markerimg" src={this.state.selectedPlace.imagePreviewUrl} alt="the real teacher" style={{ width: "100px" }} />
                                     </div>
                                     <div className="col-6">
-                                        <h6 className="mt-2 text-left"></h6>
+                                        <h6 className="mt-2 text-left"> {this.state.selectedPlace.firstName}<span>  {this.state.selectedPlace.lastName}</span></h6>
 
-                                        <p className="text-right dollar">$45 </p>
+                                        <p className="text-right dollar">$ {this.state.selectedPlace.yourRate} </p>
                                     </div>
                                 </div>
                                 <div className="row sub">
-                                    <div className="col-4"></div>
-                                    <div className="col-2">
-                                        <p className="text-center">Javascript,</p>
+                                <div className="col-4"></div>
+                                    <div className="col-8">
+                                        <p className="text-center">Javascript, {this.state.selectedPlace.specializedOn}</p>
                                     </div>
-                                    <div className="col-2 subject">
-                                        <p className="text-center"> React,</p>
-                                    </div>
-
-                                    <p className="text-center">Angular</p>
-
-                                </div>
+                                     </div>
+                                     <ReactStars/>
                                 <div className="row review">
                                     <div className="col-4">
 
-                                        <p className="text-right">Schedule</p>
+                                        <p className="text-right">{this.state.selectedPlace.phone}</p>
 
                                     </div>
                                     <div className="col-4">
-                                        <p className="text-right message">Message</p>
+                                        <p className="text-right message">{this.state.selectedPlace.zipCode}</p>
                                     </div>
                                     <div className="col-4">
-                                        <p className="text-right">Review</p>
+                                        <p className="text-right">{this.state.selectedPlace.state}</p>
                                     </div>
                                 </div>
-                                <ReactStars />
+
                             </div>
                         </div>
                     </InfoWindow>
+
                 </Map>
 
             </div>

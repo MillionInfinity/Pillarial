@@ -1,21 +1,22 @@
-import React, {Component} from 'react';
-import {googleProvider, rebase} from './UserIntr/constants';
+import React, { Component } from 'react';
+import '../App.css';
 import Nav from './Nav';
+
+import AddStudent from './AddStudent';
+// import { BrowserRouter as Router, Route, Link, Switch, Redirect } from "react-router-dom";
 import Return1 from '../img/icons/return.png';
 import Next from '../img/icons/next.png';
+import ParentProfile from './ParentProfile';
+import { Link } from 'react-router-dom';
 import './ListItem.css';
-import MapContainer from './MapContainer';
-import {BrowserRouter as Router, Route, Link, Switch, Redirect} from "react-router-dom";
-
-
-
+import { googleProvider, rebase } from './UserIntr/constants';
 export function SaveObjToFB(endpoint, objToSave, ) {
 
     return rebase.push(endpoint, {
         data: objToSave,
         then(err) {
             if (err) {
-                <p>some thing wrong</p>
+                <p> some thing wrong </p>
             } else if (!err) {
 
             }
@@ -26,75 +27,80 @@ export function SaveObjToFB(endpoint, objToSave, ) {
             return result;
         })
 }
-class TeacherProfile1 extends Component{
-     constructor(props){
-         super(props);
-         this.state={
-           teacherProfile:[],
-            imagePreviewUrl:''
-         };
-         this.handleChange = this.handleChange.bind(this);
-         this.handleSubmit = this.handleSubmit.bind(this);
-         this.handleImageChange = this.handleImageChange.bind(this);
-     }
+class MyPe extends Component {
+    constructor(props) {
+        super(props);
+        this.state =
+            {
+                parent: []
+            };
+        this.handleImageChange = this.handleImageChange.bind(this);
+        this.handleChange = this.handleChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
+    }
+    handleImageChange(e) {
+        e.preventDefault();
 
-handleImageChange(e) {
-    e.preventDefault();
+        let reader = new FileReader();
+        let file = e.target.files[0];
 
-    let reader = new FileReader();
-    let file = e.target.files[0]
+        reader.onloadend = () => {
+            this.setState({
+                file: file,
+                imagePreviewUrl: reader.result
+            });
+        };
+        reader.readAsDataURL(file);
+    }
 
-    reader.onloadend = () => {
-        this.setState({file: file, imagePreviewUrl: reader.result});
-    };
-    reader.readAsDataURL(file);
-}
-     handleChange(e){
-        //  console.log(this.state);
 
-         this.setState({
-             [e.target.name]: e.target.value
-         });
-       e.preventDefault();
-     }
-     handleSubmit(e){
-         console.log("submit clicked",this.props.user);
-         let userId=this.props.user
-         let teacherfile=this.state
 
-         SaveObjToFB(`teacher/`,teacherfile);
-       console.log(`users.uid`,)
-       e.preventDefault();
-     }
+    handleChange(event) {
+        console.log("user", event.target.name);
+        this.setState({
+            [event.target.name]: event.target.value
+        });
 
-    render(){
+
+    }
+
+    handleSubmit(e) {
+        console.log("some thing", this.state);
+        let parent = this.state
+
+        SaveObjToFB(`parent/`, parent);
+    }
+
+    render() {
         let { imagePreviewUrl } = this.state;
         let $imagePreview = null;
         if (imagePreviewUrl) {
-            $imagePreview = (<img src={imagePreviewUrl} style={{ width: '100px' }} />);
+            $imagePreview = (<img src={imagePreviewUrl} />);
         }
 
-        return(
+        return (
             <div>
                 <Nav />
                 <Link to={`/`} className='backLink'>
 
                     <a className="text-right"><img src={Return1} className='image-fluid return' alt="return" style={{ width: "35px" }} /></a>
                 </Link>
-                <Link to={`/RequestModal`} className='NextLink'>
+                <Link to={`/MapContainer`} className='NextLink'>
 
                     <a className="text-right"><img src={Next} className='image-fluid next' alt="return" style={{ width: "35px" }} /></a>
                 </Link>
 
 
-                <div className="Profile isNear">
+
+                <div className="MyPe">
                     <div className="container-fluid" >
                         <div className="row">
-                            <div className="col m-3">
+                            <div className="col m-3 myPro">
                                 <div className="text-center">
+
                                     {$imagePreview}
-                                    <div className="form-group text-center">
-                                        <input id="Upload-photo" name="Upload photo" className="input-file mt-4" type="file" onChange={this.handleImageChange} />
+                                    <div className="form-group">
+                                        <input id="Upload-photo" name="Upload photo" className="input-file" type="file" onChange={this.handleImageChange} />
                                         <label className="col-md-8 control-label" htmlFor="Upload photo" accept=".jpg, .jpeg ,.png"></label>
                                     </div>
                                 </div>
@@ -105,19 +111,15 @@ handleImageChange(e) {
                             <div className="row ">
                                 <div className="col-1"></div>
                                 <div className="col-10 m-4" >
-                                    <legend className="text-center">Instructor's Profile</legend>
+                                    <legend className="text-center">Parents Profile</legend>
                                     <form className="form-horizontal">
                                         <p><label></label><input className="form-control" name="firstName" placeholder="First Name" value={this.state.value} onChange={this.handleChange} /></p>
                                         <p><label></label><input className="form-control" name="lastName" placeholder="Last Name" value={this.state.value} onChange={this.handleChange} /></p>
                                         <p><label></label><input className="form-control" name="phone" placeholder="Phone Number" value={this.state.value} onChange={this.handleChange} /></p>
                                         <p><label></label><input className="form-control" name="address" placeholder="Permanent Address" value={this.state.value} onChange={this.handleChange} /></p>
-                                        <p><label></label><input className="form-control" name="address1" placeholder="Permanent Address" value={this.state.value} onChange={this.handleChange} /></p>
-                                        <p><label></label><input className="form-control" name="specializedOn" placeholder="Specialized On" value={this.state.value} onChange={this.handleChange} /></p>
-                                        <p><label></label><input className="form-control" name="yourRate" placeholder="Your rate per hour" value={this.state.value} onChange={this.handleChange} /></p>
-
                                         <div className="row">
                                             <div className="col-6">
-                                                <p><label></label><input className="form-control" name="zipCode" id="zipCode" placeholder="Zip Code" required value={this.state.value} onChange={this.handleChange} /></p>
+                                                <p><label></label><input className="form-control" name="zip-code" id="zipCode" placeholder="Zip-code" required value={this.state.value} onChange={this.handleChange} /></p>
                                             </div>
                                             <div className="col-6">
                                                 <p><label htmlFor="state"></label>
@@ -126,20 +128,24 @@ handleImageChange(e) {
                                             </div>
                                         </div>
                                         <div className="text-center m-4">
-                                            <Link to={'/RequestModal'}>
-                                            <button className={"btn-red mr-4 "} link="" name="Submit" type="button" onClick={this.handleSubmit}> Save and Next </button>
-                                             </Link>
+                                            <Link to={'/ParentProfile'}>
+                                                <button className={"btn-green mr-4 "} name="Submit" type="button" onClick={this.handleSubmit}>Save and Next</button>
+                                            </Link>
                                         </div>
                                     </form>
                                 </div>
                                 <div className="col-1"></div>
                             </div>
                         </div>
+
+
                     </div>
                 </div>
-
             </div>
+
         );
     }
 }
-export default TeacherProfile1;
+
+
+export default MyPe;

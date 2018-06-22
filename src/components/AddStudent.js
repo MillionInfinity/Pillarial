@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import '../App.css';
 import { Link} from "react-router-dom";
-import {googleProvider, rebase} from './UserIntr/constants';
+import { rebase} from './UserIntr/constants';
 import Profile from './Profile';
 import MapContainer from './MapContainer';
 import Nav from './Nav';
