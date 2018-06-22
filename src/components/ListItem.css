@@ -108,26 +108,7 @@ a.more {
     left: 330px;
     z-index:151;
 }
-h2.text-center.requestModa {
-margin-top: 150px;
-}
-div.col-md-8.request{
-      border:1px solid #B3D543;
-      min-height: 80px;
-      border-radius:2px;
-      margin:10px;
-      box-shadow: rgb(189, 194, 173) 1px 2px 1px;
-      /*-webkit-border-radius:2px;
-      -moz-border-radius:2px;
-      -ms-border-radius:2px;
-      -o-border-radius:2px; */
-}
-.reqmore{
-      
-      min-height: 80px;
-      border-radius:2px;
-    color:#B3D543;
-    position:relative;
-    left:35px;
-    top:30px;
+
+.tProfile{
+    margin-top: 50px;
 }

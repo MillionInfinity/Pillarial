@@ -1,11 +1,12 @@
 import React, {Component} from 'react';
 import {googleProvider, rebase} from './UserIntr/constants';
-import Nav from './Nav';
+
 import Return1 from '../img/icons/return.png';
 import Next from '../img/icons/next.png';
-import './ListItem.css';
+// import './ListItem.css';
 import MapContainer from './MapContainer';
 import {BrowserRouter as Router, Route, Link, Switch, Redirect} from "react-router-dom";
+import NavTea from './NavTea';
 
 
 
@@ -76,7 +77,7 @@ handleImageChange(e) {
 
         return(
             <div>
-                <Nav />
+                <NavTea/>
                 <Link to={`/`} className='backLink'>
 
                     <a className="text-right"><img src={Return1} className='image-fluid return' alt="return" style={{ width: "35px" }} /></a>
@@ -87,7 +88,7 @@ handleImageChange(e) {
                 </Link>
 
 
-                <div className="Profile isNear">
+                <div className="tProfile ">
                     <div className="container-fluid" >
                         <div className="row">
                             <div className="col m-3">
