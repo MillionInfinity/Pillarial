@@ -12,37 +12,39 @@ import MyTeacherProfile from './MyTeacherProfile';
 import TeacherInteraction from './TeacherInteraction';
 import TeacherData from './TeacherData';
 import RequestModal from './RequestModal';
-
+import ParentProfile from './ParentProfile';
+import MyPe from './MyPe';
 import Welcome from './Welcome';
 import H1 from './H1';
 import AllButtons from './AllButtons';
-import ParentProfile from './ParentProfile';
+import RequestModal1 from './RequestModal1';
 import * as routes from './router/routes';
  
 class Main extends Component{
   render (){
     return(
       <div>
-
+    
       <Switch>
-      <Route exact path={routes.HOME} component={Home} />
-      <Route exact path={routes.PROFILE} component={Profile} />
-      <Route exact path={routes.PAYMENT} component={Payments} />
+      <Route exact path={routes.HOME} component={Home}/>
+      <Route exact path={routes.PROFILE} component={Profile}/>
+      <Route exact path={routes.PAYMENT} component={Payments}/>
       <Route exact path={routes.TEACHERPROFILE1} component={TeacherProfile1}/>
       <Route exact path={routes.TEACHERINTERACTION} component={TeacherInteraction}/>
-      <Route exact path={routes.ADDSTUDENT} component={AddStudent} />
-      <Route exact path={routes.MAPCONTAINER} component={MapContainer} />
+      <Route exact path={routes.ADDSTUDENT} component={AddStudent}/>
+      <Route exact path={routes.MAPCONTAINER} component={MapContainer}/>
       <Route exact path={routes.TEACHERLIST} component={TeacherList}/>
       <Route exact path={routes.TEACHERDATA} component={TeacherData}/>
       <Route exact path={routes.NAV} component={Nav}/>
       <Route exact path={routes.MYTEACHERPROFILE} component={MyTeacherProfile}/>
       <Route exact path={routes.H1} component={H1}/>
-     
+      <Route exact path={routes.PARENTPROFILE} components={ParentProfile}/>
+       <Route exact path={routes.MYPE} components={MyPe}/>
       <Route exact path={routes.REQUESTMODAL} component={RequestModal}/>
       <Route exact path={routes.WELCOME} component={Welcome}/>
        <Route exact path={routes.ALLBUTTONS} components={AllButtons}/>
-       <Route exact path={routes.PARENTPROFILE} components={ParentProfile}/>
-      </Switch>
+          <Route exact path={routes.REQUESTMODAL1} component={RequestModal1} />
+        </Switch>
       </div>
 
     );

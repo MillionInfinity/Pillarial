@@ -1,11 +1,8 @@
 import React, { Component } from 'react';
 import Login from '../components/UserIntr/Login';
-import Payments from '../components/Payments';
-import MapContainer from '../components/MapContainer';
 import main from '../img/icons/home.png';
-import H1 from '../components/H1';
 import Welcome from '../components/Welcome';
-import TeacherProfile1 from './TeacherProfile1';
+
 class Home extends Component {
     constructor(props) {
         super(props);

@@ -1,14 +1,11 @@
 import React, {Component} from 'react';
 import '../App.css';
 import Nav from './Nav';
-import Button from '../components/Button.js';
-import AddStudent from './AddStudent';
-// import { BrowserRouter as Router, Route, Link, Switch, Redirect } from "react-router-dom";
 import Return1 from '../img/icons/return.png';
 import Next from '../img/icons/next.png';
 import {Link} from 'react-router-dom';
 import './ListItem.css';
-import { googleProvider, rebase } from './UserIntr/constants';
+import { rebase } from './UserIntr/constants';
 export function SaveObjToFB(endpoint, objToSave,) {
 
     return rebase.push(endpoint, {
@@ -78,7 +75,7 @@ class Profile extends Component {
 
         return (
             <div>
-                           <Nav/>
+                 <Nav/>
                 <Link to={`/`} className='backLink'>
 
                     <a className="text-right"><img src={Return1} className='image-fluid return' alt="return" style={{ width: "35px" }}/></a>
@@ -98,7 +95,7 @@ class Profile extends Component {
 
                                 {$imagePreview}
                                 <div className="form-group">
-                                    <input id="Upload-photo" name="Upload photo" className="input-file" type="file" onChange={this.handleImageChange} />
+                                    <input id="Upload-photo" name="Upload photo" className="input-file" type="file" onChange={this.handleImageChange}/>
                                     <label className="col-md-8 control-label" htmlFor="Upload photo" accept=".jpg, .jpeg ,.png"></label>
                                 </div>
                             </div>
@@ -126,8 +123,8 @@ class Profile extends Component {
                                         </div>
                                     </div>
                                     <div className="text-center m-4">
-                                    <Link to={'/AddStudent'}>
-                                   <button className={"btn-green mr-4 "} link="" name="Submit" type="button" onClick={this.handleSubmit}>Save and Next</button>
+                                    <Link to={'/ParentProfile'}>
+                                   <button className={"btn-green mr-4 "}  name="Submit" type="button" onClick={this.handleSubmit}>Save and Next</button>
                                     </Link>
                                    </div>
                                 </form>
